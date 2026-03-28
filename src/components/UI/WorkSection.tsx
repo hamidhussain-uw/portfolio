@@ -78,7 +78,7 @@ export function WorkSection({ projects }: Props) {
 
 							<LayoutGroup id="work-gallery-filters">
 								<motion.div
-									className="flex w-full flex-shrink-0 flex-col items-center gap-2 sm:w-auto sm:items-end"
+									className="flex w-full flex-shrink-0 items-center justify-center sm:w-auto sm:justify-end"
 									role="toolbar"
 									aria-label="Filter projects by category"
 									initial={reduceMotion ? false : { opacity: 0, y: 16, scale: 0.98 }}
@@ -90,9 +90,6 @@ export function WorkSection({ projects }: Props) {
 											: { type: 'spring', stiffness: 380, damping: 28, delay: 0.12 }
 									}
 								>
-									<span className="text-[11px] font-medium tracking-wide text-slate-500 sm:self-end">
-										Show projects
-									</span>
 									<div className="w-full max-w-md rounded-2xl border border-slate-200/80 bg-white/55 p-1 shadow-[0_1px_3px_rgb(15_23_42/0.04)] backdrop-blur-md sm:w-auto sm:max-w-none sm:rounded-full">
 										<div className="flex flex-wrap justify-center gap-0.5 sm:flex-nowrap sm:justify-start">
 											{FILTERS.map((f) => {

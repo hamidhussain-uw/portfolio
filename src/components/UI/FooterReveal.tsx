@@ -120,7 +120,7 @@ export function FooterReveal() {
 					className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-slate-200/80 pt-8 text-center text-xs text-slate-500 sm:flex-row sm:text-left"
 				>
 					<p>
-						© {year} {contact.name}. Built for clarity, not noise.
+						© {year} {contact.name}. Testing that earns release confidence.
 					</p>
 					<p className="text-slate-400">Peshawar, Pakistan · Open to remote collaboration</p>
 				</motion.div>

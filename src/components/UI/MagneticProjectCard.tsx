@@ -36,7 +36,7 @@ type Props = {
 };
 
 export function MagneticProjectCard({ project, className = '' }: Props) {
-	const { title, description, image, stack, qualityReport, featured, repoUrl } = project.data;
+	const { title, description, image, stack, qualityReport, repoUrl } = project.data;
 	const ref = useRef<HTMLElement>(null);
 	const reduceMotion = useReducedMotion();
 	const [finePointer, setFinePointer] = useState(false);
@@ -93,7 +93,6 @@ export function MagneticProjectCard({ project, className = '' }: Props) {
 			whileTap={reduceMotion ? undefined : { scale: 0.995 }}
 			className={[
 				'group relative flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white text-slate-900 shadow-sm transition-shadow duration-300 hover:shadow-lg',
-				featured ? 'ring-2 ring-blue-200' : '',
 				className,
 			].join(' ')}
 		>
@@ -137,12 +136,12 @@ export function MagneticProjectCard({ project, className = '' }: Props) {
 					</div>
 				</div>
 
-				<p className="font-sans mb-0 min-h-0 flex-1 text-sm leading-snug text-slate-600">
+				<p className="font-sans mb-0 min-h-0 flex-1 text-sm leading-snug text-slate-600 max-sm:flex-none max-sm:grow-0">
 					{description}
 				</p>
 
 				{stack && stack.length > 0 && (
-					<div className="mt-6 mt-auto flex shrink-0 flex-col sm:mt-7">
+					<div className="mt-auto flex shrink-0 flex-col pt-12 sm:pt-7">
 						<ul className="flex flex-wrap gap-1.5" aria-label="Tech stack">
 							{stack.map((tech) => {
 								const icon = STACK_ICON_SRC[tech];
