@@ -1,0 +1,44 @@
+---
+import { HeroMeshBackground } from '../UI/HeroMeshBackground';
+import { HeroContentStagger } from '../UI/HeroContentStagger';
+---
+
+<section
+	id="about"
+	class="relative flex min-h-[min(92vh,52rem)] items-center overflow-hidden pt-28 pb-16 sm:pb-20 md:min-h-[min(88vh,56rem)] md:pt-32"
+	aria-labelledby="hero-heading"
+>
+	<div class="pointer-events-none absolute inset-0 z-0">
+		<HeroMeshBackground client:load />
+	</div>
+
+	<div class="relative z-10 mx-auto w-full max-w-design-content px-5 sm:px-6">
+		<div
+			class="flex flex-col items-center gap-8 md:flex-row md:items-start md:gap-10 lg:gap-12 xl:gap-14"
+		>
+			<!-- Avatar: gradient ring (vibrant blue → sky), floats slightly above text flow on larger screens -->
+			<div class="relative shrink-0 md:-mt-2 md:self-start">
+				<div
+					class="rounded-full bg-gradient-to-br from-blue-600 via-blue-500 to-sky-500 p-[3px] shadow-md shadow-blue-500/15"
+				>
+					<div class="rounded-full bg-white p-1">
+						<img
+							src="/images/profile-placeholder.jpg"
+							alt="Profile photo"
+							width="192"
+							height="192"
+							class="size-48 rounded-full object-cover"
+							loading="eager"
+							fetchpriority="high"
+							decoding="async"
+						/>
+					</div>
+				</div>
+			</div>
+
+			<div class="min-w-0 w-full flex-1 md:max-w-none md:pt-1">
+				<HeroContentStagger client:visible />
+			</div>
+		</div>
+	</div>
+</section>

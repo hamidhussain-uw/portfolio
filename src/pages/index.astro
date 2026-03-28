@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../components/Layouts/BaseLayout.astro';
+import Hero from '../components/Sections/Hero.astro';
+import { FooterReveal } from '../components/UI/FooterReveal';
+import { WorkSection } from '../components/UI/WorkSection';
+import { getCollection } from 'astro:content';
+
+const projectEntries = await getCollection('projects');
+const projects = projectEntries.sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+const projectsPayload = projects.map((p) => ({ id: p.id, data: p.data }));
+---
+
+<BaseLayout>
+	<main class="flex-1">
+		<Hero />
+		<WorkSection client:visible projects={projectsPayload} />
+		<FooterReveal client:visible />
+	</main>
+</BaseLayout>

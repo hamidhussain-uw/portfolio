@@ -1,0 +1,12 @@
+---
+interface Props {
+	class?: string;
+	as?: 'article' | 'div' | 'section';
+}
+
+const { class: className = '', as: Tag = 'div' }: Props = Astro.props;
+---
+
+<Tag class:list={['glass-panel rounded-2xl p-6', className]}>
+	<slot />
+</Tag>

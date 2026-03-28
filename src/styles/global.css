@@ -1,0 +1,75 @@
+@import 'tailwindcss';
+
+/*
+ * Tailwind v4 @theme — bright, approachable palette.
+ * Primary surface: white; accents: blue-600, sky-100 zones, amber highlights.
+ */
+@theme {
+	--font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+	--font-display: 'Syne', ui-sans-serif, system-ui, sans-serif;
+
+	--max-width-design-prose: 40rem;
+	--max-width-design-sm: 44rem;
+	--max-width-design-md: 52rem;
+	--max-width-design-lg: 64rem;
+	--max-width-design-xl: 80rem;
+	--max-width-design-content: 90rem;
+	--max-width-design-wide: 100rem;
+	--max-width-design-ultra: 120rem;
+
+	/* Semantic colors — map to slate-900 / slate-600 / blue-600 system */
+	--color-background: #ffffff;
+	--color-surface: #e0f2fe; /* sky-100 */
+	--color-surface-elevated: #ffffff;
+	--color-foreground: #0f172a; /* slate-900 */
+	--color-muted: #475569; /* slate-600 */
+	--color-accent: #2563eb; /* blue-600 */
+	--color-accent-bright: #3b82f6; /* blue-500 */
+	--color-accent-dim: #1d4ed8; /* blue-700 */
+	--color-highlight: #fbbf24; /* amber-400 */
+	--color-mint: #86efac; /* green-300 — soft mint accent */
+
+	--shadow-card: 0 1px 3px 0 rgb(15 23 42 / 0.06), 0 1px 2px -1px rgb(15 23 42 / 0.05);
+	--shadow-card-hover: 0 10px 15px -3px rgb(15 23 42 / 0.08), 0 4px 6px -4px rgb(15 23 42 / 0.05);
+}
+
+@layer base {
+	html {
+		@apply scroll-smooth scroll-pt-28;
+		color-scheme: light;
+	}
+
+	body {
+		@apply bg-white font-sans text-slate-900 antialiased;
+		background-image:
+			radial-gradient(ellipse 100% 80% at 50% -20%, rgb(224 242 254 / 0.9), transparent 55%),
+			radial-gradient(ellipse 70% 50% at 100% 0%, rgb(254 243 199 / 0.35), transparent 45%);
+	}
+}
+
+@layer components {
+	/* Solid “card” surface — replaces glassmorphism */
+	.glass-panel {
+		@apply rounded-2xl border border-slate-200 bg-white shadow-sm;
+	}
+
+	.ambient-glow {
+		@apply pointer-events-none fixed rounded-full blur-3xl opacity-50;
+	}
+
+	.ambient-glow--one {
+		width: min(42rem, 90vw);
+		height: min(42rem, 90vw);
+		top: -15%;
+		left: -10%;
+		background: radial-gradient(circle, rgb(125 211 252 / 0.45) 0%, transparent 70%);
+	}
+
+	.ambient-glow--two {
+		width: min(36rem, 80vw);
+		height: min(36rem, 80vw);
+		bottom: -10%;
+		right: -5%;
+		background: radial-gradient(circle, rgb(251 191 36 / 0.25) 0%, transparent 65%);
+	}
+}
