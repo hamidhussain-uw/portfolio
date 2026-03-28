@@ -17,6 +17,7 @@ const STACK_ICON_SRC: Record<string, string> = {
 	Python: 'https://cdn.simpleicons.org/python/3776AB',
 	k6: 'https://cdn.simpleicons.org/k6/7D64FF',
 	Selenium: 'https://cdn.simpleicons.org/selenium/43B02A',
+	BrowserStack: 'https://cdn.worldvectorlogo.com/logos/browserstack.svg',
 	Jenkins: 'https://cdn.simpleicons.org/jenkins/D24939',
 	GitLab: 'https://cdn.simpleicons.org/gitlab/FC6D26',
 	'Vue.js': 'https://cdn.simpleicons.org/vuedotjs/4FC08D',
@@ -142,25 +143,28 @@ export function MagneticProjectCard({ project, className = '' }: Props) {
 
 				{stack && stack.length > 0 && (
 					<div className="mt-auto flex shrink-0 flex-col pt-12 sm:pt-7">
-						<ul className="flex flex-wrap gap-1.5" aria-label="Tech stack">
+						<ul
+							className="-mx-0.5 flex flex-nowrap gap-1 overflow-x-auto px-0.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+							aria-label="Tech stack"
+						>
 							{stack.map((tech) => {
 								const icon = STACK_ICON_SRC[tech];
 								return (
 									<li
 										key={tech}
-										className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-slate-50 py-0.5 pr-2 pl-1 text-[11px] font-medium text-slate-700"
+										className="inline-flex shrink-0 items-center gap-px rounded-full border border-slate-200/60 bg-transparent py-px pl-px pr-1 text-[9px] font-medium leading-none text-slate-600 sm:text-[10px]"
 									>
 										{icon && (
 											<img
 												src={icon}
 												alt=""
-												width={16}
-												height={16}
-												className="size-4 shrink-0 object-contain opacity-90"
+												width={10}
+												height={10}
+												className="size-2.5 shrink-0 object-contain sm:size-3"
 												loading="lazy"
 											/>
 										)}
-										<span>{tech}</span>
+										<span className="whitespace-nowrap">{tech}</span>
 									</li>
 								);
 							})}

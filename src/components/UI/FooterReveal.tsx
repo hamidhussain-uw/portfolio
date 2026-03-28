@@ -40,22 +40,22 @@ export function FooterReveal() {
 			whileInView="show"
 			viewport={{ once: true, margin: '-40px 0px', amount: 0.15 }}
 		>
-			<div className="mx-auto max-w-design-content px-5 py-14 sm:px-6 sm:py-16 md:py-20">
-				<div className="grid gap-12 md:grid-cols-12 md:gap-10 lg:gap-14">
+			<div className="mx-auto max-w-design-content px-5 py-7 sm:px-6 sm:py-8 md:py-9">
+				<div className="grid gap-6 md:grid-cols-12 md:gap-6 lg:gap-8">
 					<motion.div variants={item} className="md:col-span-5">
-						<div className="flex items-start gap-3">
+						<div className="flex items-start gap-2">
 							<span
-								className="font-display flex size-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-sky-500 text-xs font-bold text-white shadow-md shadow-blue-600/20"
+								className="font-display flex size-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-sky-500 text-[10px] font-bold text-white shadow-sm shadow-blue-600/20"
 								aria-hidden
 							>
 								{initials}
 							</span>
 							<div>
-								<p className="font-display text-base font-semibold tracking-tight text-slate-900">
+								<p className="font-display text-sm font-semibold tracking-tight text-slate-900 sm:text-base">
 									{contact.name}
 								</p>
-								<p className="mt-0.5 text-sm text-slate-600">{contact.role}</p>
-								<p className="mt-3 max-w-xs text-sm leading-relaxed text-slate-600">
+								<p className="mt-0.5 text-xs text-slate-600 sm:text-sm">{contact.role}</p>
+								<p className="mt-1.5 max-w-xs text-xs leading-snug text-slate-600 sm:text-sm">
 									QA automation, API and UI coverage, CI quality gates, and pragmatic test strategy.
 								</p>
 							</div>
@@ -63,17 +63,19 @@ export function FooterReveal() {
 					</motion.div>
 
 					<motion.div variants={item} className="md:col-span-4">
-						<p className="font-sans text-xs font-semibold tracking-[0.18em] text-slate-500 uppercase">Connect</p>
-						<ul className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-3 sm:gap-x-6">
+						<p className="font-sans text-[10px] font-semibold tracking-[0.16em] text-slate-500 uppercase sm:text-xs sm:tracking-[0.18em]">
+							Connect
+						</p>
+						<ul className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1.5 sm:gap-x-4">
 							<li className="shrink-0">
 								<a
 									href={contact.linkedinUrl}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="group inline-flex items-center gap-2.5 text-sm font-medium text-slate-600 transition-colors hover:text-blue-700"
+									className="group inline-flex items-center gap-2 text-xs font-medium text-slate-600 transition-colors hover:text-blue-700 sm:text-sm"
 								>
-									<span className="flex size-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 shadow-sm transition-colors group-hover:border-blue-200 group-hover:text-blue-600">
-										<IconLinkedIn className="size-4" />
+									<span className="flex size-8 items-center justify-center rounded-md border border-slate-200 bg-white text-slate-700 shadow-sm transition-colors group-hover:border-blue-200 group-hover:text-blue-600 sm:size-9">
+										<IconLinkedIn className="size-3.5 sm:size-4" />
 									</span>
 									LinkedIn
 									<span className="sr-only">(opens in new tab)</span>
@@ -84,10 +86,10 @@ export function FooterReveal() {
 									href={contact.githubUrl}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="group inline-flex items-center gap-2.5 text-sm font-medium text-slate-600 transition-colors hover:text-slate-900"
+									className="group inline-flex items-center gap-2 text-xs font-medium text-slate-600 transition-colors hover:text-slate-900 sm:text-sm"
 								>
-									<span className="flex size-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 shadow-sm transition-colors group-hover:border-slate-300">
-										<IconGitHub className="size-4" />
+									<span className="flex size-8 items-center justify-center rounded-md border border-slate-200 bg-white text-slate-700 shadow-sm transition-colors group-hover:border-slate-300 sm:size-9">
+										<IconGitHub className="size-3.5 sm:size-4" />
 									</span>
 									GitHub
 									<span className="sr-only">(opens in new tab)</span>
@@ -96,7 +98,7 @@ export function FooterReveal() {
 							<li className="min-w-0 max-w-full">
 								<a
 									href={`mailto:${contact.email}`}
-									className="block truncate text-sm font-medium text-slate-600 transition-colors hover:text-blue-700 sm:max-w-[14rem] md:max-w-[16rem]"
+									className="block truncate text-xs font-medium text-slate-600 transition-colors hover:text-blue-700 sm:max-w-[14rem] sm:text-sm md:max-w-[16rem]"
 									title={contact.email}
 								>
 									{contact.email}
@@ -105,10 +107,10 @@ export function FooterReveal() {
 						</ul>
 					</motion.div>
 
-					<motion.div variants={item} className="flex flex-col justify-between gap-8 md:col-span-3 md:items-end md:text-right">
+					<motion.div variants={item} className="flex flex-col justify-between gap-2 md:col-span-3 md:items-end md:text-right">
 						<a
 							href="/contact"
-							className="inline-flex w-full items-center justify-center rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 md:w-auto"
+							className="inline-flex w-full items-center justify-center rounded-lg bg-blue-600 px-3.5 py-2 text-xs font-semibold text-white shadow-sm transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 sm:text-sm md:w-auto"
 						>
 							Get in touch
 						</a>
@@ -117,7 +119,7 @@ export function FooterReveal() {
 
 				<motion.div
 					variants={item}
-					className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-slate-200/80 pt-8 text-center text-xs text-slate-500 sm:flex-row sm:text-left"
+					className="mt-6 flex flex-col items-center justify-between gap-2 border-t border-slate-200/80 pt-4 text-center text-[11px] text-slate-500 sm:flex-row sm:gap-3 sm:pt-4 sm:text-left sm:text-xs"
 				>
 					<p>
 						© {year} {contact.name}. Testing that earns release confidence.
