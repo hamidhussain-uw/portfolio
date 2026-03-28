@@ -46,14 +46,14 @@ export function HeroExpertiseMotion() {
 			>
 				<motion.p
 					variants={head}
-					className="font-sans text-xs font-semibold tracking-[0.2em] text-blue-600 uppercase sm:text-sm"
+					className="font-sans text-xs font-semibold tracking-[0.2em] text-electric-500 uppercase sm:text-sm"
 				>
 					Core expertise
 				</motion.p>
 				<motion.h2
 					variants={head}
 					id="expertise-heading"
-					className="font-display mt-2 text-lg font-semibold tracking-tight text-balance text-slate-900 sm:text-xl md:text-2xl md:leading-snug"
+					className="font-display mt-2 text-3xl font-semibold tracking-tight text-balance text-navy-900 sm:text-4xl md:text-5xl md:leading-[1.1]"
 				>
 					Automation, APIs, and quality gates across the stack
 				</motion.h2>
@@ -76,7 +76,7 @@ export function HeroExpertiseMotion() {
 			>
 				{LABELS.map((label) => (
 					<motion.li key={label} variants={pill}>
-						<span className="inline-flex rounded-full border border-slate-200/80 bg-white/55 px-3 py-1.5 text-xs font-medium text-slate-700 shadow-[0_1px_2px_rgb(15_23_42/0.04)] backdrop-blur-sm sm:px-3.5 sm:py-2 sm:text-sm">
+						<span className="inline-flex rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-navy-900 shadow-sm transition-shadow duration-300 hover:shadow-[var(--shadow-premium)] sm:px-3.5 sm:py-2 sm:text-sm">
 							{label}
 						</span>
 					</motion.li>

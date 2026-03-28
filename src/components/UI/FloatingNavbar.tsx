@@ -31,7 +31,7 @@ function NavItem({
 }) {
 	const reduceMotion = useReducedMotion();
 	const base =
-		'group relative block rounded-md px-3 py-2 text-sm font-medium text-slate-600 transition-colors duration-200 focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white';
+		'group relative block rounded-md px-3 py-2 text-sm font-medium text-slate-600 transition-colors duration-200 focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white';
 	const content = (
 		<>
 			<span
@@ -130,11 +130,11 @@ export function FloatingNavbar({
 				>
 					<a
 						href="/"
-						className="group flex min-w-0 shrink items-center gap-2.5 rounded-lg py-1 pr-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+						className="group flex min-w-0 shrink items-center gap-2.5 rounded-lg py-1 pr-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
 						onClick={closeMobile}
 					>
 						<span
-							className="font-display flex size-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-sky-500 text-xs font-bold text-white shadow-sm shadow-blue-600/20"
+							className="font-display flex size-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-electric-500 to-peach-500 text-xs font-bold text-white shadow-sm shadow-electric-500/25"
 							aria-hidden
 						>
 							{brand
@@ -145,7 +145,7 @@ export function FloatingNavbar({
 								.toUpperCase()}
 						</span>
 						<span className="min-w-0 text-left leading-tight">
-							<span className="font-display block truncate text-sm font-semibold tracking-tight text-slate-900 transition-colors group-hover:text-blue-700">
+							<span className="font-display block truncate text-sm font-semibold tracking-tight text-navy-900 transition-colors group-hover:text-electric-600">
 								{brand}
 							</span>
 							<span className="hidden text-[11px] font-medium tracking-wide text-slate-500 md:block">
@@ -165,7 +165,7 @@ export function FloatingNavbar({
 					<div className="hidden items-center gap-2 lg:flex">
 						<a
 							href="/contact"
-							className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+							className="inline-flex items-center justify-center rounded-lg bg-peach-500 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-peach-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-peach-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
 						>
 							Get in touch
 						</a>
@@ -173,7 +173,7 @@ export function FloatingNavbar({
 
 					<button
 						type="button"
-						className="inline-flex size-11 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 lg:hidden"
+						className="inline-flex size-11 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-500 focus-visible:ring-offset-2 lg:hidden"
 						aria-expanded={mobileOpen}
 						aria-controls={menuId}
 						aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
@@ -216,7 +216,7 @@ export function FloatingNavbar({
 						<div className="border-t border-slate-100 p-4">
 							<a
 								href="/contact"
-								className="flex w-full items-center justify-center rounded-lg bg-blue-600 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+								className="flex w-full items-center justify-center rounded-lg bg-peach-500 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-peach-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-peach-400 focus-visible:ring-offset-2"
 								onClick={closeMobile}
 							>
 								Get in touch

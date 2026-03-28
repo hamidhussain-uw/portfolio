@@ -2,7 +2,7 @@ import { motion, useMotionTemplate, useMotionValue, useReducedMotion, useSpring,
 import { useEffect, useRef } from 'react';
 
 const STATIC_MESH =
-	'radial-gradient(ellipse 90% 75% at 50% 40%, rgb(147 197 253 / 0.45) 0%, transparent 52%), radial-gradient(ellipse 65% 55% at 78% 68%, rgb(186 230 253 / 0.5) 0%, transparent 48%), radial-gradient(ellipse 55% 45% at 50% 100%, rgb(253 230 138 / 0.35) 0%, transparent 42%)';
+	'radial-gradient(ellipse 90% 75% at 50% 40%, rgb(99 91 255 / 0.07) 0%, transparent 52%), radial-gradient(ellipse 65% 55% at 78% 68%, rgb(255 126 95 / 0.06) 0%, transparent 48%), radial-gradient(ellipse 55% 45% at 50% 100%, rgb(99 91 255 / 0.05) 0%, transparent 42%)';
 
 export function HeroMeshBackground() {
 	const ref = useRef<HTMLDivElement>(null);
@@ -23,9 +23,9 @@ export function HeroMeshBackground() {
 	const meshX = useTransform(smoothX, [0, 1], ['14%', '86%']);
 	const meshY = useTransform(smoothY, [0, 1], ['18%', '82%']);
 	const meshBg = useMotionTemplate`
-		radial-gradient(ellipse 90% 75% at ${meshX} ${meshY}, rgb(96 165 250 / 0.35) 0%, transparent 52%),
-		radial-gradient(ellipse 65% 55% at 78% 68%, rgb(186 230 253 / 0.45) 0%, transparent 48%),
-		radial-gradient(ellipse 55% 45% at 50% 100%, rgb(253 224 71 / 0.25) 0%, transparent 42%)
+		radial-gradient(ellipse 90% 75% at ${meshX} ${meshY}, rgb(99 91 255 / 0.09) 0%, transparent 52%),
+		radial-gradient(ellipse 65% 55% at 78% 68%, rgb(255 126 95 / 0.07) 0%, transparent 48%),
+		radial-gradient(ellipse 55% 45% at 50% 100%, rgb(99 91 255 / 0.05) 0%, transparent 42%)
 	`;
 
 	useEffect(() => {
@@ -62,10 +62,10 @@ export function HeroMeshBackground() {
 				aria-hidden
 			>
 				<div className="absolute inset-0 opacity-95" style={{ backgroundImage: STATIC_MESH }} />
-				<div className="absolute top-[8%] left-[12%] h-[min(52vw,28rem)] w-[min(52vw,28rem)] rounded-full bg-sky-200/60 blur-[80px]" />
-				<div className="absolute top-[28%] right-[5%] h-[min(48vw,26rem)] w-[min(48vw,26rem)] rounded-full bg-blue-200/50 blur-[72px]" />
-				<div className="absolute bottom-[5%] left-[28%] h-[min(44vw,22rem)] w-[min(44vw,22rem)] rounded-full bg-amber-200/40 blur-[64px]" />
-				<div className="absolute inset-0 bg-gradient-to-b from-white/30 via-white/70 to-white" />
+				<div className="absolute top-[8%] left-[12%] h-[min(52vw,28rem)] w-[min(52vw,28rem)] rounded-full bg-electric-400/25 blur-[80px]" />
+				<div className="absolute top-[28%] right-[5%] h-[min(48vw,26rem)] w-[min(48vw,26rem)] rounded-full bg-peach-400/20 blur-[72px]" />
+				<div className="absolute bottom-[5%] left-[28%] h-[min(44vw,22rem)] w-[min(44vw,22rem)] rounded-full bg-electric-500/15 blur-[64px]" />
+				<div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/85 to-white" />
 			</div>
 		);
 	}
@@ -78,24 +78,24 @@ export function HeroMeshBackground() {
 		>
 			<motion.div className="absolute inset-0 opacity-95" style={{ backgroundImage: meshBg }} />
 			<motion.div
-				className="absolute top-[8%] left-[12%] h-[min(52vw,28rem)] w-[min(52vw,28rem)] rounded-full bg-sky-300/50 blur-[80px]"
-				animate={{ scale: [1, 1.08, 1], opacity: [0.55, 0.75, 0.55] }}
+				className="absolute top-[8%] left-[12%] h-[min(52vw,28rem)] w-[min(52vw,28rem)] rounded-full bg-electric-400/30 blur-[80px]"
+				animate={{ scale: [1, 1.08, 1], opacity: [0.5, 0.7, 0.5] }}
 				transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
 				style={{ x: blob1X, y: blob1Y }}
 			/>
 			<motion.div
-				className="absolute top-[28%] right-[5%] h-[min(48vw,26rem)] w-[min(48vw,26rem)] rounded-full bg-blue-300/45 blur-[72px]"
+				className="absolute top-[28%] right-[5%] h-[min(48vw,26rem)] w-[min(48vw,26rem)] rounded-full bg-peach-400/25 blur-[72px]"
 				animate={{ scale: [1.05, 1, 1.05] }}
 				transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut' }}
 				style={{ x: blob2X, y: blob2Y }}
 			/>
 			<motion.div
-				className="absolute bottom-[5%] left-[28%] h-[min(44vw,22rem)] w-[min(44vw,22rem)] rounded-full bg-amber-200/45 blur-[64px]"
-				animate={{ scale: [1, 1.12, 1], opacity: [0.45, 0.65, 0.45] }}
+				className="absolute bottom-[5%] left-[28%] h-[min(44vw,22rem)] w-[min(44vw,22rem)] rounded-full bg-electric-500/20 blur-[64px]"
+				animate={{ scale: [1, 1.12, 1], opacity: [0.4, 0.6, 0.4] }}
 				transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
 				style={{ x: blob3X, y: blob3Y }}
 			/>
-			<div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/75 to-white" />
+			<div className="absolute inset-0 bg-gradient-to-b from-white/30 via-white/88 to-white" />
 		</div>
 	);
 }

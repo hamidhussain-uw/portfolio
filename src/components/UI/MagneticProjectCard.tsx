@@ -93,14 +93,14 @@ export function MagneticProjectCard({ project, className = '' }: Props) {
 			}
 			whileTap={reduceMotion ? undefined : { scale: 0.995 }}
 			className={[
-				'group relative flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white text-slate-900 shadow-sm transition-shadow duration-300 hover:shadow-lg',
+				'group relative flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white text-navy-900 shadow-[var(--shadow-card)] transition-[box-shadow,transform] duration-300 ease-out hover:shadow-[var(--shadow-premium)]',
 				className,
 			].join(' ')}
 		>
 			<div className="relative z-[1] flex min-h-0 flex-1 flex-col p-4 sm:p-5">
 				<div className="mb-3 flex items-center gap-3">
 					<motion.div
-						className="flex size-11 shrink-0 items-center justify-center rounded-xl border border-slate-200/90 bg-gradient-to-b from-white to-slate-50 p-2 shadow-sm sm:size-12 sm:p-2"
+						className="flex size-11 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-white p-2 shadow-sm sm:size-12 sm:p-2"
 						aria-hidden
 						whileHover={reduceMotion ? undefined : { scale: 1.06, rotate: -2 }}
 						transition={{ type: 'spring', stiffness: 400, damping: 22 }}
@@ -117,7 +117,7 @@ export function MagneticProjectCard({ project, className = '' }: Props) {
 					</motion.div>
 					<div className="min-w-0 flex-1">
 						<div className="flex flex-wrap items-start justify-between gap-x-2 gap-y-2">
-							<h3 className="min-w-0 max-w-full flex-1 basis-[min(100%,16rem)] font-display text-base font-semibold leading-snug tracking-tight text-balance text-slate-900 sm:text-lg">
+							<h3 className="min-w-0 max-w-full flex-1 basis-[min(100%,16rem)] font-display text-base font-semibold leading-snug tracking-tight text-balance text-navy-900 sm:text-lg">
 								{title}
 							</h3>
 							{(qualityReport || repoUrl) && (

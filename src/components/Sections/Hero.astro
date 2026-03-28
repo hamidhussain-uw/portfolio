@@ -1,5 +1,5 @@
 ---
-import { HeroAvatarEntrance } from '../UI/HeroAvatarEntrance';
+import { AboutMeProfile } from '../UI/AboutMeProfile';
 import { HeroContentStagger } from '../UI/HeroContentStagger';
 import { HeroExpertiseMotion } from '../UI/HeroExpertiseMotion';
 import { HeroMeshBackground } from '../UI/HeroMeshBackground';
@@ -7,7 +7,7 @@ import { HeroMeshBackground } from '../UI/HeroMeshBackground';
 
 <section
 	id="about"
-	class="relative flex min-h-[min(92dvh,52rem)] flex-col justify-center overflow-hidden pt-[max(6rem,calc(3.5rem+env(safe-area-inset-top,0px)+1rem))] pb-16 sm:pb-20 md:min-h-[min(88dvh,56rem)] md:pt-28"
+	class="relative flex min-h-[min(78dvh,46rem)] flex-col justify-center overflow-hidden pt-[max(6rem,calc(3.5rem+env(safe-area-inset-top,0px)+1rem))] pb-10 sm:pb-12 md:min-h-[min(72dvh,50rem)] md:pt-28 md:pb-12"
 	aria-labelledby="hero-heading"
 >
 	<div class="pointer-events-none absolute inset-0 z-0">
@@ -16,9 +16,9 @@ import { HeroMeshBackground } from '../UI/HeroMeshBackground';
 
 	<div class="relative z-10 mx-auto w-full max-w-design-content px-5 sm:px-6">
 		<div
-			class="flex flex-col items-center gap-8 md:flex-row md:items-start md:gap-10 lg:gap-12 xl:gap-14"
+			class="flex flex-col items-center gap-6 md:flex-row md:items-start md:gap-7 lg:gap-8 xl:gap-9"
 		>
-			<HeroAvatarEntrance client:visible />
+			<AboutMeProfile client:visible />
 
 			<div class="min-w-0 w-full flex-1 md:max-w-none md:pt-1">
 				<HeroContentStagger client:visible />

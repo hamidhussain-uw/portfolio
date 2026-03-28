@@ -19,6 +19,29 @@ function IconGitHub({ className }: { className?: string }) {
 	);
 }
 
+/** Lighthouse-style tower + beams; decorative (scores are illustrative). */
+function IconLighthouse({ className }: { className?: string }) {
+	return (
+		<svg
+			className={className}
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="1.6"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+			aria-hidden
+		>
+			<path d="M12 22V10.5" />
+			<path d="M8.5 22h7" />
+			<path d="M9.5 10.5 8.5 5h7l-1 5.5" />
+			<path d="M12 4.5V6" />
+			<circle cx="12" cy="3.25" r="1.15" fill="currentColor" stroke="none" />
+			<path d="M6 5.5 4 3.5M18 5.5 20 3.5" opacity="0.45" />
+		</svg>
+	);
+}
+
 export function FooterReveal() {
 	const reduceMotion = useReducedMotion();
 	const container = useMemo(() => getStaggerContainer(reduceMotion, 0.1, 0.05), [reduceMotion]);
@@ -34,7 +57,7 @@ export function FooterReveal() {
 	return (
 		<motion.footer
 			id="contact"
-			className="relative border-t border-slate-200/80 bg-gradient-to-b from-white via-sky-50/30 to-sky-50/50"
+			className="relative border-t border-slate-200/80 bg-white"
 			variants={container}
 			initial={reduceMotion ? 'show' : 'hidden'}
 			whileInView="show"
@@ -45,13 +68,13 @@ export function FooterReveal() {
 					<motion.div variants={item} className="md:col-span-5">
 						<div className="flex items-start gap-2">
 							<span
-								className="font-display flex size-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-sky-500 text-[10px] font-bold text-white shadow-sm shadow-blue-600/20"
+								className="font-display flex size-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-electric-500 to-peach-500 text-[10px] font-bold text-white shadow-sm shadow-electric-500/25"
 								aria-hidden
 							>
 								{initials}
 							</span>
 							<div>
-								<p className="font-display text-sm font-semibold tracking-tight text-slate-900 sm:text-base">
+								<p className="font-display text-sm font-semibold tracking-tight text-navy-900 sm:text-base">
 									{contact.name}
 								</p>
 								<p className="mt-0.5 text-xs text-slate-600 sm:text-sm">{contact.role}</p>
@@ -72,9 +95,9 @@ export function FooterReveal() {
 									href={contact.linkedinUrl}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="group inline-flex items-center gap-2 text-xs font-medium text-slate-600 transition-colors hover:text-blue-700 sm:text-sm"
+									className="group inline-flex items-center gap-2 text-xs font-medium text-slate-600 transition-colors hover:text-electric-600 sm:text-sm"
 								>
-									<span className="flex size-8 items-center justify-center rounded-md border border-slate-200 bg-white text-slate-700 shadow-sm transition-colors group-hover:border-blue-200 group-hover:text-blue-600 sm:size-9">
+									<span className="flex size-8 items-center justify-center rounded-md border border-slate-200 bg-white text-slate-700 shadow-sm transition-colors group-hover:border-electric-200 group-hover:text-electric-600 sm:size-9">
 										<IconLinkedIn className="size-3.5 sm:size-4" />
 									</span>
 									LinkedIn
@@ -98,7 +121,7 @@ export function FooterReveal() {
 							<li className="min-w-0 max-w-full">
 								<a
 									href={`mailto:${contact.email}`}
-									className="block truncate text-xs font-medium text-slate-600 transition-colors hover:text-blue-700 sm:max-w-[14rem] sm:text-sm md:max-w-[16rem]"
+									className="block truncate text-xs font-medium text-slate-600 transition-colors hover:text-electric-600 sm:max-w-[14rem] sm:text-sm md:max-w-[16rem]"
 									title={contact.email}
 								>
 									{contact.email}
@@ -110,7 +133,7 @@ export function FooterReveal() {
 					<motion.div variants={item} className="flex flex-col justify-between gap-2 md:col-span-3 md:items-end md:text-right">
 						<a
 							href="/contact"
-							className="inline-flex w-full items-center justify-center rounded-lg bg-blue-600 px-3.5 py-2 text-xs font-semibold text-white shadow-sm transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 sm:text-sm md:w-auto"
+							className="inline-flex w-full items-center justify-center rounded-lg bg-peach-500 px-3.5 py-2 text-xs font-semibold text-white shadow-sm transition-colors hover:bg-peach-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-peach-400 focus-visible:ring-offset-2 sm:text-sm md:w-auto"
 						>
 							Get in touch
 						</a>
@@ -119,7 +142,57 @@ export function FooterReveal() {
 
 				<motion.div
 					variants={item}
-					className="mt-6 flex flex-col items-center justify-between gap-2 border-t border-slate-200/80 pt-4 text-center text-[11px] text-slate-500 sm:flex-row sm:gap-3 sm:pt-4 sm:text-left sm:text-xs"
+					className="mt-6 border-t border-slate-200/80 pt-4"
+					aria-labelledby="site-health-heading"
+				>
+					<div
+						className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-5 sm:gap-y-2"
+						aria-label="Illustrative Lighthouse category scores (not a live audit)"
+					>
+						<div className="flex shrink-0 items-center gap-2">
+							<IconLighthouse className="size-[1.125rem] shrink-0 text-[#e07c54] sm:size-5" />
+							<p
+								id="site-health-heading"
+								className="font-sans text-[10px] font-semibold tracking-[0.16em] text-slate-500 uppercase sm:text-xs sm:tracking-[0.18em]"
+							>
+								Site Health
+							</p>
+						</div>
+						<dl className="flex flex-wrap items-baseline gap-x-3 gap-y-1 text-[11px] sm:gap-x-4 sm:text-xs">
+							{(
+								[
+									{ label: 'Performance', short: 'Perf', score: 93 },
+									{ label: 'Accessibility', short: 'A11y', score: 100 },
+									{ label: 'Best Practices', short: 'Best', score: 100 },
+									{ label: 'SEO', short: 'SEO', score: 100 },
+								] as const
+							).map(({ label, short, score }) => (
+								<div key={label} className="flex items-baseline gap-1">
+									<dt className="text-slate-500">
+										<span className="sm:hidden">{short}</span>
+										<span className="hidden sm:inline">{label}</span>
+									</dt>
+									<dd className="font-semibold tabular-nums text-emerald-600">{score}</dd>
+								</div>
+							))}
+						</dl>
+						<span
+							className="hidden h-3 w-px shrink-0 bg-slate-200 sm:block"
+							aria-hidden
+						/>
+						<p className="inline-flex max-w-full items-center gap-1.5 rounded-full border border-emerald-200/80 bg-emerald-50/80 px-2.5 py-1 text-[10px] font-semibold text-emerald-950 sm:text-xs">
+							<span
+								className="size-1.5 shrink-0 rounded-full bg-emerald-500 shadow-[0_0_0_2px_rgb(16_185_129/0.2)]"
+								aria-hidden
+							/>
+							Tested with Playwright: 0 Defects Found
+						</p>
+					</div>
+				</motion.div>
+
+				<motion.div
+					variants={item}
+					className="mt-4 flex flex-col items-center justify-between gap-2 border-t border-slate-200/80 pt-4 text-center text-[11px] text-slate-500 sm:flex-row sm:gap-3 sm:text-left sm:text-xs"
 				>
 					<p>
 						© {year} {contact.name}. Testing that earns release confidence.

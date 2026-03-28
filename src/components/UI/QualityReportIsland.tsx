@@ -123,17 +123,17 @@ export function QualityReportIsland({
 						aria-modal="true"
 						aria-labelledby={titleId}
 						tabIndex={-1}
-						className="relative z-[1] w-full max-w-md overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-lg outline-none md:max-w-lg md:p-8"
+						className="relative z-[1] w-full max-w-md overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-[var(--shadow-card)] outline-none transition-shadow duration-300 md:max-w-lg md:p-8"
 						initial={{ opacity: 0, scale: 0.94, y: 16 }}
 						animate={{ opacity: 1, scale: 1, y: 0 }}
 						exit={{ opacity: 0, scale: 0.94, y: 16 }}
 						transition={{ type: 'spring', stiffness: 320, damping: 28 }}
 						onClick={(e) => e.stopPropagation()}
 					>
-						<div className="pointer-events-none absolute -top-16 right-0 h-40 w-40 rounded-full bg-sky-100/90 blur-2xl" />
+						<div className="pointer-events-none absolute -top-16 right-0 h-40 w-40 rounded-full bg-electric-500/15 blur-2xl" />
 						<button
 							type="button"
-							className="absolute top-4 right-4 flex size-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 shadow-sm transition-colors hover:border-blue-200 hover:bg-blue-50 hover:text-blue-600"
+							className="absolute top-4 right-4 flex size-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 shadow-sm transition-colors hover:border-electric-200 hover:bg-electric-500/5 hover:text-electric-600"
 							aria-label="Close quality report"
 							onClick={close}
 						>
@@ -141,14 +141,14 @@ export function QualityReportIsland({
 								<path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" />
 							</svg>
 						</button>
-						<p className="font-sans pr-12 text-xs font-semibold tracking-[0.18em] text-blue-600 uppercase">
+						<p className="font-sans pr-12 text-xs font-semibold tracking-[0.18em] text-electric-500 uppercase">
 							Test summary
 						</p>
-						<h2 id={titleId} className="font-display mt-2 text-xl font-semibold tracking-tight text-slate-900">
+						<h2 id={titleId} className="font-display mt-2 text-xl font-semibold tracking-tight text-navy-900">
 							{projectTitle}
 						</h2>
 						<div className="mt-6 flex flex-wrap items-end gap-2">
-							<span className="font-display text-5xl font-bold tracking-tight text-slate-900 tabular-nums md:text-6xl">
+							<span className="font-display text-5xl font-bold tracking-tight text-navy-900 tabular-nums md:text-6xl">
 								{coverage}
 							</span>
 							<span className="mb-2 text-sm font-medium text-slate-600">coverage</span>
@@ -173,7 +173,7 @@ export function QualityReportIsland({
 													className="size-[22px] shrink-0 object-contain"
 													aria-hidden
 												/>
-												<span className="text-sm font-medium text-slate-900">{meta.label}</span>
+												<span className="text-sm font-medium text-navy-900">{meta.label}</span>
 											</li>
 										);
 									})}
@@ -182,7 +182,7 @@ export function QualityReportIsland({
 						)}
 						<button
 							type="button"
-							className="mt-8 w-full rounded-2xl bg-blue-600 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+							className="mt-8 w-full rounded-2xl bg-peach-500 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-peach-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-peach-400 focus-visible:ring-offset-2"
 							onClick={close}
 						>
 							Close
@@ -198,7 +198,7 @@ export function QualityReportIsland({
 			<motion.button
 				ref={triggerRef}
 				type="button"
-				className="group inline-flex min-h-10 items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50/90 px-3 py-2 text-xs font-medium text-slate-600 transition-colors hover:border-slate-300 hover:bg-white hover:text-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white sm:min-h-0 sm:py-1.5"
+				className="group inline-flex min-h-10 items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-2 text-xs font-medium text-slate-600 shadow-sm transition-colors hover:border-electric-200 hover:shadow-[var(--shadow-premium)] hover:text-navy-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-500/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white sm:min-h-0 sm:py-1.5"
 				whileTap={{ scale: 0.98 }}
 				transition={{ type: 'spring', stiffness: 450, damping: 28 }}
 				onClick={() => setOpen(true)}

@@ -43,14 +43,14 @@ export function WorkSection({ projects }: Props) {
 	return (
 		<motion.section
 			id="work"
-			className="border-y border-sky-100/80 bg-sky-50/70"
+			className="border-y border-slate-100 bg-white"
 			aria-labelledby="work-heading"
 			variants={sectionReveal}
 			initial={reduceMotion ? 'show' : 'hidden'}
 			whileInView="show"
 			viewport={{ once: true, margin: '-80px 0px', amount: 0.08 }}
 		>
-			<div className="mx-auto max-w-design-content px-5 py-14 sm:px-6 sm:py-16 md:px-6 md:py-20">
+			<div className="mx-auto max-w-design-content px-5 pt-8 pb-14 sm:px-6 sm:pt-10 sm:pb-16 md:px-6 md:pt-10 md:pb-20">
 				<motion.div
 					className="flex flex-col gap-8 md:gap-10"
 					variants={container}
@@ -70,7 +70,7 @@ export function WorkSection({ projects }: Props) {
 								<motion.h2
 									variants={headerLine}
 									id="work-heading"
-									className="font-display text-2xl font-semibold tracking-tight text-balance text-slate-900 sm:text-3xl"
+									className="font-display text-4xl font-semibold tracking-tight text-balance text-navy-900 sm:text-5xl md:text-6xl"
 								>
 									Project gallery
 								</motion.h2>
@@ -90,7 +90,7 @@ export function WorkSection({ projects }: Props) {
 											: { type: 'spring', stiffness: 380, damping: 28, delay: 0.12 }
 									}
 								>
-									<div className="w-full max-w-md rounded-2xl border border-slate-200/80 bg-white/55 p-1 shadow-[0_1px_3px_rgb(15_23_42/0.04)] backdrop-blur-md sm:w-auto sm:max-w-none sm:rounded-full">
+									<div className="w-full max-w-md rounded-2xl border border-slate-200 bg-white p-1 shadow-sm sm:w-auto sm:max-w-none sm:rounded-full">
 										<div className="flex flex-wrap justify-center gap-0.5 sm:flex-nowrap sm:justify-start">
 											{FILTERS.map((f) => {
 												const isActive = activeFilter === f.id;
@@ -100,7 +100,7 @@ export function WorkSection({ projects }: Props) {
 														type="button"
 														onClick={() => setActiveFilter(f.id)}
 														aria-pressed={isActive}
-														className="relative inline-flex min-h-11 items-center justify-center rounded-full px-3.5 py-2 text-sm font-medium focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-sky-50/80 sm:min-h-0 sm:px-4 sm:py-2"
+														className="relative inline-flex min-h-11 items-center justify-center rounded-full px-3.5 py-2 text-sm font-medium focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white sm:min-h-0 sm:px-4 sm:py-2"
 													>
 														{isActive && (
 															<motion.span
@@ -118,8 +118,8 @@ export function WorkSection({ projects }: Props) {
 															className={[
 																'relative z-[1] transition-colors duration-200',
 																isActive
-																	? 'text-slate-900'
-																	: 'text-slate-500 hover:text-slate-800',
+																	? 'text-navy-900'
+																	: 'text-slate-500 hover:text-navy-900',
 															].join(' ')}
 														>
 															{f.label}
