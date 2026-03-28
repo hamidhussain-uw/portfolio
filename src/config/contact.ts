@@ -1,14 +1,19 @@
 /**
- * Public contact details. Social URLs feed the nav, footer, and contact page.
+ * Public contact details. Social URLs feed the nav, footer, and contact page (incl. Upwork).
  * Update `email` when you want mailto + form delivery.
  */
 export const contact = {
 	name: 'Hamid Hussain',
 	role: 'QA Engineer',
+	/** Portrait in `public/` (e.g. `/images/my/my1.jpeg`), home hero & About */
+	portraitSrc: '/images/my/my1.jpeg',
 	githubUrl: 'https://github.com/hamidhussain-uw',
 	/** Profile URL used in footer, contact page, and navbar */
 	linkedinUrl: 'https://www.linkedin.com/in/hamidhussain88/',
-	email: 'hamidhussain.uw@gmail.com',
+	/** Freelance profile (footer, contact, nav) */
+	upworkUrl:
+		'https://www.upwork.com/freelancers/~01efd38d5a0000a6c7?mp_source=share',
+	email: '',
 } as const;
 
 export function buildMailtoHref(opts: { subject?: string; body?: string }) {

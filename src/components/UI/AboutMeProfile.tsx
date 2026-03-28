@@ -1,10 +1,12 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { contact } from '../../config/contact';
 
-/** Place a high-res portrait at `public/images/profile.jpg` (served as `/images/profile.jpg`). */
-const PROFILE_SRC = '/images/profile.jpg';
+export type AboutMeProfileProps = {
+	/** When false, only the portrait (no name / role under the image). */
+	showCaption?: boolean;
+};
 
-export function AboutMeProfile() {
+export function AboutMeProfile({ showCaption = true }: AboutMeProfileProps) {
 	const reduceMotion = useReducedMotion();
 
 	return (
@@ -18,19 +20,6 @@ export function AboutMeProfile() {
 					: { type: 'spring', stiffness: 220, damping: 28, mass: 0.92 }
 			}
 		>
-			<motion.p
-				className="w-full text-center font-sans text-xs font-semibold tracking-[0.2em] text-electric-500 uppercase"
-				initial={reduceMotion ? false : { opacity: 0, y: 6 }}
-				animate={{ opacity: 1, y: 0 }}
-				transition={
-					reduceMotion
-						? { duration: 0 }
-						: { type: 'spring', stiffness: 320, damping: 30, delay: 0.04 }
-				}
-			>
-				About me
-			</motion.p>
-
 			<div className="relative flex w-full justify-center">
 				<div className="rounded-full bg-gradient-to-br from-electric-500 via-electric-400 to-peach-500 p-[3px] shadow-md shadow-electric-500/20 ring-1 ring-white/60">
 					<motion.div
@@ -54,7 +43,7 @@ export function AboutMeProfile() {
 					>
 						<div className="relative overflow-hidden rounded-full bg-slate-100">
 							<img
-								src={PROFILE_SRC}
+								src={contact.portraitSrc}
 								alt={`${contact.name}, professional portrait`}
 								width={640}
 								height={640}
@@ -69,21 +58,23 @@ export function AboutMeProfile() {
 				</div>
 			</div>
 
-			<motion.div
-				className="w-full text-center"
-				initial={reduceMotion ? false : { opacity: 0, y: 8 }}
-				animate={{ opacity: 1, y: 0 }}
-				transition={
-					reduceMotion
-						? { duration: 0 }
-						: { type: 'spring', stiffness: 300, damping: 28, delay: 0.1 }
-				}
-			>
-				<p className="font-display text-xl font-semibold tracking-tight text-navy-900 sm:text-2xl">
-					{contact.name}
-				</p>
-				<p className="mt-1 text-sm font-medium text-slate-600 sm:text-base">{contact.role}</p>
-			</motion.div>
+			{showCaption ? (
+				<motion.div
+					className="w-full text-center"
+					initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={
+						reduceMotion
+							? { duration: 0 }
+							: { type: 'spring', stiffness: 300, damping: 28, delay: 0.1 }
+					}
+				>
+					<p className="font-display text-xl font-semibold tracking-tight text-navy-900 sm:text-2xl">
+						{contact.name}
+					</p>
+					<p className="mt-1 text-sm font-medium text-slate-600 sm:text-base">{contact.role}</p>
+				</motion.div>
+			) : null}
 		</motion.div>
 	);
 }

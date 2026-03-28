@@ -1,32 +1,9 @@
 import { motion, useMotionValue, useReducedMotion, useSpring } from 'framer-motion';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { ProjectStackChips } from './ProjectStackChips';
 import { RepoLink } from './RepoLink';
 import type { ProjectSerialized } from './projectTypes';
 import { QualityReportIsland } from './QualityReportIsland';
-
-const STACK_ICON_SRC: Record<string, string> = {
-	Playwright: 'https://playwright.dev/img/playwright-logo.svg',
-	TypeScript: 'https://cdn.simpleicons.org/typescript/3178C6',
-	'GitHub Actions': 'https://cdn.simpleicons.org/githubactions/2088FF',
-	React: 'https://cdn.simpleicons.org/react/61DAFB',
-	'D3.js': 'https://cdn.simpleicons.org/d3/F9A03C',
-	Cypress: 'https://cdn.simpleicons.org/cypress/69D3A2',
-	Postman: 'https://cdn.simpleicons.org/postman/FF6C37',
-	Docker: 'https://cdn.simpleicons.org/docker/2496ED',
-	Grafana: 'https://cdn.simpleicons.org/grafana/F46800',
-	Python: 'https://cdn.simpleicons.org/python/3776AB',
-	k6: 'https://cdn.simpleicons.org/k6/7D64FF',
-	Selenium: 'https://cdn.simpleicons.org/selenium/43B02A',
-	BrowserStack: 'https://cdn.worldvectorlogo.com/logos/browserstack.svg',
-	Jenkins: 'https://cdn.simpleicons.org/jenkins/D24939',
-	GitLab: 'https://cdn.simpleicons.org/gitlab/FC6D26',
-	'Vue.js': 'https://cdn.simpleicons.org/vuedotjs/4FC08D',
-	Angular: 'https://cdn.simpleicons.org/angular/DD0031',
-	JMeter: 'https://cdn.simpleicons.org/apachejmeter/D22129',
-	Percy: 'https://cdn.simpleicons.org/percy/9E66BF',
-	'OWASP ZAP': 'https://cdn.simpleicons.org/owasp',
-	TestRail: 'https://cdn.simpleicons.org/testrail/65C179',
-};
 
 const MAGNET_STRENGTH = 0.14;
 const SPRING = { stiffness: 280, damping: 24, mass: 0.4 };
@@ -141,36 +118,7 @@ export function MagneticProjectCard({ project, className = '' }: Props) {
 					{description}
 				</p>
 
-				{stack && stack.length > 0 && (
-					<div className="mt-auto flex shrink-0 flex-col pt-12 sm:pt-7">
-						<ul
-							className="-mx-0.5 flex flex-nowrap gap-1 overflow-x-auto px-0.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-							aria-label="Tech stack"
-						>
-							{stack.map((tech) => {
-								const icon = STACK_ICON_SRC[tech];
-								return (
-									<li
-										key={tech}
-										className="inline-flex shrink-0 items-center gap-px rounded-full border border-slate-200/60 bg-transparent py-px pl-px pr-1 text-[9px] font-medium leading-none text-slate-600 sm:text-[10px]"
-									>
-										{icon && (
-											<img
-												src={icon}
-												alt=""
-												width={10}
-												height={10}
-												className="size-2.5 shrink-0 object-contain sm:size-3"
-												loading="lazy"
-											/>
-										)}
-										<span className="whitespace-nowrap">{tech}</span>
-									</li>
-								);
-							})}
-						</ul>
-					</div>
-				)}
+				<ProjectStackChips stack={stack} className="mt-auto flex shrink-0 flex-col pt-12 sm:pt-7" />
 			</div>
 		</motion.article>
 	);

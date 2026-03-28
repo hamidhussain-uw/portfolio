@@ -50,8 +50,8 @@ export function HeroContentStagger() {
 				variants={item}
 				className="font-sans max-w-design-prose text-base leading-relaxed text-slate-600 sm:text-lg md:text-xl"
 			>
-				These case studies show how I connect product risk to automated checks, hands-on exploration, and
-				clear signals in CI—so teams can ship sooner with fewer surprises in production.
+				I connect product risk to automated checks, hands-on exploration, and
+				clear signals in CI/CD so teams can ship sooner with fewer surprises in production.
 			</motion.p>
 		</motion.div>
 	);

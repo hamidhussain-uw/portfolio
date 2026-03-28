@@ -5,11 +5,13 @@ export type NavLink = { href: string; label: string; external?: boolean };
 
 const defaultLinks: NavLink[] = [
 	{ href: '/', label: 'Home' },
+	{ href: '/about', label: 'About' },
 	{ href: '/#expertise', label: 'Expertise' },
 	{ href: '/#work', label: 'Portfolio' },
 	{ href: '/contact', label: 'Contact' },
 	{ href: 'https://www.linkedin.com/in/hamidhussain88/', label: 'LinkedIn', external: true },
 	{ href: 'https://github.com/hamidhussain-uw', label: 'GitHub', external: true },
+	{ href: 'https://www.upwork.com/', label: 'Upwork', external: true },
 ];
 
 type Props = {
@@ -18,6 +20,7 @@ type Props = {
 	tagline?: string;
 	githubUrl?: string;
 	linkedinUrl?: string;
+	upworkUrl?: string;
 };
 
 function NavItem({
@@ -79,6 +82,7 @@ export function FloatingNavbar({
 	tagline = 'QA & Test Automation',
 	githubUrl = 'https://github.com/hamidhussain-uw',
 	linkedinUrl = 'https://www.linkedin.com/in/hamidhussain88/',
+	upworkUrl = 'https://www.upwork.com/',
 }: Props) {
 	const { scrollY } = useScroll();
 	const [scrolled, setScrolled] = useState(false);
@@ -89,6 +93,7 @@ export function FloatingNavbar({
 	const resolvedLinks = links.map((l) => {
 		if (l.label === 'GitHub' && githubUrl) return { ...l, href: githubUrl };
 		if (l.label === 'LinkedIn' && linkedinUrl) return { ...l, href: linkedinUrl };
+		if (l.label === 'Upwork' && upworkUrl) return { ...l, href: upworkUrl };
 		return l;
 	});
 

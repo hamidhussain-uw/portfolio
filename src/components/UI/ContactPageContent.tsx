@@ -71,7 +71,8 @@ export function ContactPageContent() {
 								Connect directly
 							</h2>
 							<p className="mt-2 text-sm leading-relaxed text-slate-600">
-								Fastest responses are usually on LinkedIn. GitHub is best for code and automation samples.
+								LinkedIn or Upwork for availability and freelance work; GitHub for code and automation
+								samples.
 							</p>
 							<motion.ul
 								className="mt-6 flex flex-col gap-3"
@@ -109,13 +110,29 @@ export function ContactPageContent() {
 								</motion.li>
 								<motion.li variants={linkPop}>
 									<a
-										href={buildMailtoHref({ subject: 'Hello', body: '' })}
-										className="flex items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-800 shadow-sm transition-colors hover:border-electric-200 hover:bg-electric-500/5"
+										href={contact.upworkUrl}
+										target="_blank"
+										rel="noopener noreferrer"
+										className="flex items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-800 shadow-sm transition-colors hover:border-emerald-200 hover:bg-emerald-500/[0.06] hover:text-emerald-800"
 									>
-										<span className="truncate">{contact.email}</span>
-										<span className="shrink-0 text-xs font-medium text-electric-600">Email</span>
+										<span>Upwork</span>
+										<span className="text-slate-400" aria-hidden>
+											↗
+										</span>
+										<span className="sr-only">(opens in new tab)</span>
 									</a>
 								</motion.li>
+								{contact.email ? (
+									<motion.li variants={linkPop}>
+										<a
+											href={buildMailtoHref({ subject: 'Hello', body: '' })}
+											className="flex items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-800 shadow-sm transition-colors hover:border-electric-200 hover:bg-electric-500/5"
+										>
+											<span className="truncate">{contact.email}</span>
+											<span className="shrink-0 text-xs font-medium text-electric-600">Email</span>
+										</a>
+									</motion.li>
+								) : null}
 							</motion.ul>
 						</div>
 					</motion.div>

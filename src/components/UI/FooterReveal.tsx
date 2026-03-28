@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { useMemo } from 'react';
 import { contact } from '../../config/contact';
 import { getStaggerContainer, getStaggerItemSpring } from './motion/staggerVariants';
+import { IconUpwork, UpworkJobSuccessLogo, UpworkTopRatedPlusLogo } from './UpworkCredentialMarks';
 
 function IconLinkedIn({ className }: { className?: string }) {
 	return (
@@ -65,7 +66,7 @@ export function FooterReveal() {
 		>
 			<div className="mx-auto max-w-design-content px-5 py-7 sm:px-6 sm:py-8 md:py-9">
 				<div className="grid gap-6 md:grid-cols-12 md:gap-6 lg:gap-8">
-					<motion.div variants={item} className="md:col-span-5">
+					<motion.div variants={item} className="md:col-span-3 lg:col-span-4">
 						<div className="flex items-start gap-2">
 							<span
 								className="font-display flex size-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-electric-500 to-peach-500 text-[10px] font-bold text-white shadow-sm shadow-electric-500/25"
@@ -85,52 +86,87 @@ export function FooterReveal() {
 						</div>
 					</motion.div>
 
-					<motion.div variants={item} className="md:col-span-4">
-						<p className="font-sans text-[10px] font-semibold tracking-[0.16em] text-slate-500 uppercase sm:text-xs sm:tracking-[0.18em]">
-							Connect
-						</p>
-						<ul className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1.5 sm:gap-x-4">
-							<li className="shrink-0">
+					<motion.div variants={item} className="min-w-0 md:col-span-7 lg:col-span-5">
+						<div className="flex flex-nowrap items-center justify-start gap-x-2 overflow-x-auto pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] sm:gap-x-3 md:overflow-visible [&::-webkit-scrollbar]:hidden">
+							<div
+								className="inline-flex shrink-0 flex-nowrap items-center gap-x-1.5 sm:gap-x-2"
+								aria-label="Upwork profile and credentials"
+							>
 								<a
-									href={contact.linkedinUrl}
+									href={contact.upworkUrl}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="group inline-flex items-center gap-2 text-xs font-medium text-slate-600 transition-colors hover:text-electric-600 sm:text-sm"
+									className="group inline-flex shrink-0 items-center gap-1.5 text-[10px] font-semibold text-slate-800 transition-colors hover:text-emerald-800 sm:text-[11px]"
 								>
-									<span className="flex size-8 items-center justify-center rounded-md border border-slate-200 bg-white text-slate-700 shadow-sm transition-colors group-hover:border-electric-200 group-hover:text-electric-600 sm:size-9">
-										<IconLinkedIn className="size-3.5 sm:size-4" />
+									<span className="flex size-7 items-center justify-center text-[#14a800] sm:size-8">
+										<IconUpwork className="size-3.5 sm:size-4" />
 									</span>
-									LinkedIn
-									<span className="sr-only">(opens in new tab)</span>
-								</a>
-							</li>
-							<li className="shrink-0">
-								<a
-									href={contact.githubUrl}
-									target="_blank"
-									rel="noopener noreferrer"
-									className="group inline-flex items-center gap-2 text-xs font-medium text-slate-600 transition-colors hover:text-slate-900 sm:text-sm"
-								>
-									<span className="flex size-8 items-center justify-center rounded-md border border-slate-200 bg-white text-slate-700 shadow-sm transition-colors group-hover:border-slate-300 sm:size-9">
-										<IconGitHub className="size-3.5 sm:size-4" />
+									<span className="leading-none">
+										Upwork
+										<span className="sr-only">, view profile (opens in new tab)</span>
 									</span>
-									GitHub
-									<span className="sr-only">(opens in new tab)</span>
 								</a>
-							</li>
-							<li className="min-w-0 max-w-full">
-								<a
-									href={`mailto:${contact.email}`}
-									className="block truncate text-xs font-medium text-slate-600 transition-colors hover:text-electric-600 sm:max-w-[14rem] sm:text-sm md:max-w-[16rem]"
-									title={contact.email}
-								>
-									{contact.email}
-								</a>
-							</li>
-						</ul>
+
+								<span className="h-3.5 w-px shrink-0 bg-slate-200" aria-hidden />
+
+								<div className="inline-flex items-center gap-1 sm:gap-1.5">
+									<UpworkJobSuccessLogo />
+									<span className="whitespace-nowrap text-[9px] font-bold leading-none text-[#001e00] sm:text-[10px]">
+										100% Job Success
+									</span>
+								</div>
+
+								<span className="h-3.5 w-px shrink-0 bg-slate-200" aria-hidden />
+
+								<div className="inline-flex items-center gap-1 sm:gap-1.5">
+									<UpworkTopRatedPlusLogo />
+									<span className="whitespace-nowrap text-[9px] font-bold leading-none text-[#001e00] sm:text-[10px]">
+										Top Rated Plus
+									</span>
+								</div>
+							</div>
+
+							<span className="h-4 w-px shrink-0 bg-slate-200" aria-hidden />
+
+							<div className="inline-flex shrink-0 flex-nowrap items-center gap-x-2 sm:gap-x-2.5">
+								<p className="shrink-0 font-sans text-[9px] font-semibold tracking-[0.14em] text-slate-500 uppercase sm:text-[10px] sm:tracking-[0.16em]">
+									Connect
+								</p>
+								<ul className="inline-flex flex-nowrap items-center gap-x-2 sm:gap-x-2.5">
+									<li className="shrink-0">
+										<a
+											href={contact.linkedinUrl}
+											target="_blank"
+											rel="noopener noreferrer"
+											className="group inline-flex items-center gap-1.5 text-[10px] font-medium whitespace-nowrap text-slate-600 transition-colors hover:text-electric-600 sm:text-[11px]"
+										>
+											<span className="flex size-6 items-center justify-center rounded border border-slate-200 bg-white text-slate-700 shadow-sm transition-colors group-hover:border-electric-200 group-hover:text-electric-600 sm:size-7">
+												<IconLinkedIn className="size-3 sm:size-3.5" />
+											</span>
+											LinkedIn
+											<span className="sr-only">(opens in new tab)</span>
+										</a>
+									</li>
+									<li className="shrink-0">
+										<a
+											href={contact.githubUrl}
+											target="_blank"
+											rel="noopener noreferrer"
+											className="group inline-flex items-center gap-1.5 text-[10px] font-medium whitespace-nowrap text-slate-600 transition-colors hover:text-slate-900 sm:text-[11px]"
+										>
+											<span className="flex size-6 items-center justify-center rounded border border-slate-200 bg-white text-slate-700 shadow-sm transition-colors group-hover:border-slate-300 sm:size-7">
+												<IconGitHub className="size-3 sm:size-3.5" />
+											</span>
+											GitHub
+											<span className="sr-only">(opens in new tab)</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
 					</motion.div>
 
-					<motion.div variants={item} className="flex flex-col justify-between gap-2 md:col-span-3 md:items-end md:text-right">
+					<motion.div variants={item} className="flex flex-col justify-between gap-2 md:col-span-2 lg:col-span-3 md:items-end md:text-right">
 						<a
 							href="/contact"
 							className="inline-flex w-full items-center justify-center rounded-lg bg-peach-500 px-3.5 py-2 text-xs font-semibold text-white shadow-sm transition-colors hover:bg-peach-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-peach-400 focus-visible:ring-offset-2 sm:text-sm md:w-auto"

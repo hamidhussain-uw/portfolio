@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../components/Layouts/BaseLayout.astro';
+import { AboutPageContent } from '../components/UI/AboutPageContent';
+---
+
+<BaseLayout
+	title="About | Hamid Hussain"
+	description="QA engineer: tools, Upwork success, client reviews, work history, and how I help teams ship with confidence."
+>
+	<main class="flex-1">
+		<AboutPageContent client:load />
+	</main>
+</BaseLayout>
