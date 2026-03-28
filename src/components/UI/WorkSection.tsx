@@ -72,7 +72,7 @@ export function WorkSection({ projects }: Props) {
 									id="work-heading"
 									className="font-display text-4xl font-semibold tracking-tight text-balance text-navy-900 sm:text-5xl md:text-6xl"
 								>
-									Project gallery
+									Projects
 								</motion.h2>
 							</motion.div>
 
