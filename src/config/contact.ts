@@ -14,6 +14,14 @@ export const contact = {
 	upworkUrl:
 		'https://www.upwork.com/freelancers/~01efd38d5a0000a6c7?mp_source=share',
 	email: '',
+	/** Landing hero: details under portrait (keep in sync with how you want to be reached). */
+	heroDetails: {
+		location: 'Peshawar, Pakistan',
+		workStyle: 'Open to remote collaboration',
+		timezone: 'PKT (UTC+5)',
+		availability: 'Flexible hours, overlap with US and EU mornings',
+		experience: '9+ years in QA (manual and automation)',
+	},
 } as const;
 
 export function buildMailtoHref(opts: { subject?: string; body?: string }) {

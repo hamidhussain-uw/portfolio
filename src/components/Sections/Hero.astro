@@ -3,6 +3,7 @@ import { AboutMeProfile } from '../UI/AboutMeProfile';
 import { HeroContentStagger } from '../UI/HeroContentStagger';
 import { HeroExpertiseMotion } from '../UI/HeroExpertiseMotion';
 import { HeroMeshBackground } from '../UI/HeroMeshBackground';
+import { HeroProfileDetails } from '../UI/HeroProfileDetails';
 ---
 
 <section
@@ -18,7 +19,12 @@ import { HeroMeshBackground } from '../UI/HeroMeshBackground';
 		<div
 			class="flex flex-col items-center gap-6 md:flex-row md:items-start md:gap-7 lg:gap-8 xl:gap-9"
 		>
-			<AboutMeProfile client:visible />
+			<div
+				class="flex w-full max-w-[22rem] shrink-0 flex-col items-center gap-4 md:w-[min(22rem,100%)] md:items-stretch md:gap-5"
+			>
+				<AboutMeProfile client:visible />
+				<HeroProfileDetails client:visible />
+			</div>
 
 			<div class="min-w-0 w-full flex-1 md:max-w-none md:pt-1">
 				<HeroContentStagger client:visible />
