@@ -1,6 +1,6 @@
 ---
 title: Vue.js E2E on GitLab CI with Cypress
-description: Vue 3 with Cypress component and E2E jobs on GitLab, including review apps per merge request. Parallel shards by feature folder keep pipelines fast as the suite grows.
+description: Vue 3 SaaS frontend; I wired Cypress component and E2E jobs on GitLab with MR review apps and parallel shards by feature folder so merge requests stayed fast to validate even as the suite grew.
 image: /images/projects/vue-gitlab-cypress.svg
 category: ui-automation
 repoUrl: https://github.com/hamidhussain-uw/vue-gitlab-cypress-e2e

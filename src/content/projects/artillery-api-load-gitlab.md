@@ -1,6 +1,6 @@
 ---
 title: Artillery.io API load on GitLab
-description: Artillery load scenarios in GitLab CI mirror Postman payloads for parity between smoke and high-volume runs. Alerts fire when latency or errors regress against baseline.
+description: Public API under sustained load; I defined Artillery scenarios in GitLab CI to mirror Postman collections (TypeScript tooling) so smoke and high-volume runs told the same story and the pipeline alerted when latency or errors regressed past baseline.
 image: /images/projects/artillery-api.svg
 category: api-testing
 repoUrl: https://github.com/hamidhussain-uw/artillery-api-gitlab

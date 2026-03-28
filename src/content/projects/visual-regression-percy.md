@@ -1,6 +1,6 @@
 ---
 title: Visual regression with Percy & Cypress
-description: Cypress plus Percy snapshots on merge catch layout drift before release. Baselines follow GitHub Flow; visual review happens in the same PR as the code.
+description: React UI delivery; I wired Cypress journeys with Percy snapshots on GitHub Actions and GitFlow-style baselines so layout drift was reviewed inside the same pull request and fewer visual regressions slipped to production.
 image: /images/projects/visual-percy.svg
 category: ui-automation
 repoUrl: https://github.com/hamidhussain-uw/cypress-percy-visual

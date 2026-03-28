@@ -1,6 +1,6 @@
 ---
 title: Performance & load testing with k6
-description: k6 soak, spike, and steady-load scenarios on staging using production-shaped traffic. Checks map to latency and error SLOs; Grafana baselines sit beside functional gates in release.
+description: Staging load program for a customer-facing app; I built k6 soak/spike/steady scripts (TypeScript) in Docker with Grafana dashboards and GitHub Actions SLO checks so performance stayed visible next to functional results at every release decision.
 image: /images/projects/performance-k6.svg
 category: ui-automation
 repoUrl: https://github.com/example/k6-performance-suite

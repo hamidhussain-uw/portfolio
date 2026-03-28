@@ -1,6 +1,6 @@
 ---
 title: Accessibility checks in CI
-description: axe scans on every merge plus manual checks on complex widgets. Blockers fail the build; VPAT-ready summaries keep one shared accessibility backlog.
+description: React web accessibility program; I automated Playwright plus axe on GitHub Actions (TypeScript) and layered manual checks on complex widgets so serious issues failed the build early and the team maintained a single VPAT-ready backlog.
 image: /images/projects/accessibility-ci.svg
 category: ui-automation
 repoUrl: https://github.com/example/a11y-ci-pipeline

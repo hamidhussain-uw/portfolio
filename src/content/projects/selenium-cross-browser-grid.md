@@ -1,6 +1,6 @@
 ---
 title: Selenium Grid & BrowserStack regression
-description: Selenium across Chrome, Firefox, Safari, and Edge via Grid and BrowserStack. Jenkins runs nightly regression and PR smoke with video and logs on every failure.
+description: Cross-browser web regression; I built Selenium TypeScript suites on Grid plus BrowserStack, orchestrated from Jenkins (PR smoke, nightly full), which gave the team five-browser confidence with video and logs on every failure.
 image: /images/projects/selenium-cross-browser.svg
 category: ui-automation
 repoUrl: https://github.com/hamidhussain-uw/selenium-grid-browserstack-suite

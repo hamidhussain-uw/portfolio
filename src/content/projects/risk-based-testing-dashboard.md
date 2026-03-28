@@ -1,6 +1,6 @@
 ---
 title: Risk-Based Testing Dashboard
-description: Risk heatmaps and traceability from requirements to tests and last-run status. Scores blend defects, usage, and release scope so teams invest testing where failure hurts most.
+description: Internal risk dashboard (React, D3, APIs) for release planning; I defined heatmaps and requirements-to-tests-to-run traceability with risk scoring from defects, usage, and scope so the team invested testing effort where failure would hurt most.
 image: /images/projects/risk-dashboard.svg
 category: manual
 repoUrl: https://github.com/example/risk-based-testing-dashboard

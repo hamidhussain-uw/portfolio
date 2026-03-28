@@ -13,6 +13,8 @@ export const STACK_ICON_SRC: Record<string, string> = {
 	Java: 'https://cdn.simpleicons.org/openjdk/437291',
 	Git: 'https://cdn.simpleicons.org/git/F05032',
 	k6: 'https://cdn.simpleicons.org/k6/7D64FF',
+	'Artillery.io': '/images/stack/artillery-io.svg',
+	Artillery: '/images/stack/artillery-io.svg',
 	Selenium: 'https://cdn.simpleicons.org/selenium/43B02A',
 	BrowserStack: 'https://cdn.worldvectorlogo.com/logos/browserstack.svg',
 	Jenkins: 'https://cdn.simpleicons.org/jenkins/D24939',

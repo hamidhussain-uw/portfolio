@@ -1,6 +1,6 @@
 ---
 title: Synthetic test data & environment guardrails
-description: Seeded fixtures and PII-safe generators keep API and UI runs reproducible. Nightly resets and OpenAPI checks catch schema drift before false reds pile up.
+description: Shared test-data layer for APIs and UI; I built versioned synthetic fixtures and resets (TypeScript, Cypress, Docker, GitHub Actions) with OpenAPI drift checks, which kept runs reproducible and cut false reds from bad data or schema skew.
 image: /images/projects/test-data.svg
 category: api-testing
 repoUrl: https://github.com/example/synthetic-test-data

@@ -1,6 +1,6 @@
 ---
 title: Angular app E2E with Playwright
-description: Playwright against Angular with stable selectors and storage-state auth. Chromium and Firefox on every PR, plus a11y smoke on critical views.
+description: Angular production app; I implemented Playwright/TypeScript E2E with stable selectors, storage-state auth, and GitHub Actions on Chromium/Firefox plus a11y smoke on critical views, which made failures easy to replay from traces and steadied Angular releases.
 image: /images/projects/angular-e2e.svg
 category: ui-automation
 repoUrl: https://github.com/hamidhussain-uw/angular-playwright-e2e

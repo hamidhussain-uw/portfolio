@@ -1,6 +1,6 @@
 ---
 title: Mobile regression lab (iOS & Android)
-description: Appium PR smoke and nightly regression on real iOS and Android hardware. Parallel shards with video and logs focus on payments, push, and offline flows before store release.
+description: Mobile product on iOS and Android; I automated PR smoke and nightly regression (payments, push, offline) with Python and TypeScript runners in Docker on GitHub Actions against real devices so store releases shipped with stronger confidence and failures were easy to debug from video and logs.
 image: /images/projects/mobile-regression.svg
 category: ui-automation
 repoUrl: https://github.com/example/mobile-appium-regression

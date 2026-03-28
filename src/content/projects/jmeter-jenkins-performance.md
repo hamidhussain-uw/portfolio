@@ -1,6 +1,6 @@
 ---
 title: JMeter & Jenkins performance lab
-description: JMeter models peak checkout and search traffic on staging, run from Jenkins with archived results. Grafana sits next to k6 so load and SLO checks tell one release story.
+description: Peak checkout and search load on staging; I owned JMeter plans, Jenkins jobs, Grafana baselines, and TypeScript helpers around runs, leaving archived results and gates that caught latency and error regressions before anything reached production.
 image: /images/projects/jmeter-load.svg
 category: ui-automation
 repoUrl: https://github.com/hamidhussain-uw/jmeter-jenkins-performance

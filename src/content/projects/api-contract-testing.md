@@ -1,6 +1,6 @@
 ---
 title: API contract & consumer-driven tests
-description: Pact consumer-driven contracts align mobile, web, and billing on payloads and errors. Provider verification runs on every pull request before deploy.
+description: Multi-channel API platform; I drove consumer-driven contract tests (TypeScript), Postman parity, Dockerized runs, and GitHub Actions provider verification on every pull request so breaking provider changes were caught before they could reach dependent clients.
 image: /images/projects/api-contract.svg
 category: api-testing
 repoUrl: https://github.com/example/api-contract-tests

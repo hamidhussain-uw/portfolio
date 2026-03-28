@@ -1,6 +1,6 @@
 ---
 title: OWASP-aligned security checks in CI
-description: OWASP ZAP baseline scans on staging APIs and key UI flows, plus a Top 10 checklist. Findings land in GitHub with severity and traces before pen-test cycles.
+description: Web/API security in CI; I integrated OWASP ZAP baseline in Docker with GitHub Actions, TypeScript glue, and an OWASP Top 10 checklist on staging so findings landed in GitHub with severity before pen-test cycles and critical issues blocked main.
 image: /images/projects/security-owasp.svg
 category: api-testing
 repoUrl: https://github.com/hamidhussain-uw/owasp-zap-ci-gates

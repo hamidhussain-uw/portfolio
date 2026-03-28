@@ -1,6 +1,6 @@
 ---
 title: TestRail traceability & Jenkins reporting
-description: Playwright and API results sync to TestRail after each Jenkins run. Exploratory charters use the same structure so automation and manual work show one coverage picture.
+description: Mixed manual and automation program; I piped Playwright and API results from Jenkins into TestRail (TypeScript reporting) and aligned exploratory charters to the same cases so leadership could see one traceability thread from requirements through the latest run.
 image: /images/projects/testrail-hub.svg
 category: manual
 repoUrl: https://github.com/hamidhussain-uw/testrail-jenkins-integration
