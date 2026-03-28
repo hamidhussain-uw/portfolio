@@ -1,10 +1,11 @@
 import { motion, useMotionValue, useReducedMotion, useSpring } from 'framer-motion';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { RepoLink } from './RepoLink';
 import type { ProjectSerialized } from './projectTypes';
 import { QualityReportIsland } from './QualityReportIsland';
 
 const STACK_ICON_SRC: Record<string, string> = {
-	Playwright: 'https://cdn.simpleicons.org/playwright/2EAD33',
+	Playwright: 'https://playwright.dev/img/playwright-logo.svg',
 	TypeScript: 'https://cdn.simpleicons.org/typescript/3178C6',
 	'GitHub Actions': 'https://cdn.simpleicons.org/githubactions/2088FF',
 	React: 'https://cdn.simpleicons.org/react/61DAFB',
@@ -15,6 +16,15 @@ const STACK_ICON_SRC: Record<string, string> = {
 	Grafana: 'https://cdn.simpleicons.org/grafana/F46800',
 	Python: 'https://cdn.simpleicons.org/python/3776AB',
 	k6: 'https://cdn.simpleicons.org/k6/7D64FF',
+	Selenium: 'https://cdn.simpleicons.org/selenium/43B02A',
+	Jenkins: 'https://cdn.simpleicons.org/jenkins/D24939',
+	GitLab: 'https://cdn.simpleicons.org/gitlab/FC6D26',
+	'Vue.js': 'https://cdn.simpleicons.org/vuedotjs/4FC08D',
+	Angular: 'https://cdn.simpleicons.org/angular/DD0031',
+	JMeter: 'https://cdn.simpleicons.org/apachejmeter/D22129',
+	Percy: 'https://cdn.simpleicons.org/percy/9E66BF',
+	'OWASP ZAP': 'https://cdn.simpleicons.org/owasp',
+	TestRail: 'https://cdn.simpleicons.org/testrail/65C179',
 };
 
 const MAGNET_STRENGTH = 0.14;
@@ -26,7 +36,7 @@ type Props = {
 };
 
 export function MagneticProjectCard({ project, className = '' }: Props) {
-	const { title, description, stack, qualityReport, featured } = project.data;
+	const { title, description, image, stack, qualityReport, featured, repoUrl } = project.data;
 	const ref = useRef<HTMLElement>(null);
 	const reduceMotion = useReducedMotion();
 	const [finePointer, setFinePointer] = useState(false);
@@ -68,58 +78,95 @@ export function MagneticProjectCard({ project, className = '' }: Props) {
 	return (
 		<motion.article
 			ref={ref}
+			layout={false}
 			style={motionStyle}
 			onPointerMove={onPointerMove}
 			onPointerLeave={onPointerLeave}
+			whileHover={
+				reduceMotion || magneticEnabled
+					? undefined
+					: {
+							scale: 1.012,
+							transition: { type: 'spring', stiffness: 420, damping: 28, mass: 0.6 },
+						}
+			}
+			whileTap={reduceMotion ? undefined : { scale: 0.995 }}
 			className={[
-				'group relative flex h-full min-h-[240px] flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white p-5 text-slate-900 shadow-sm transition-shadow duration-300 hover:shadow-lg sm:min-h-[260px] sm:p-6 md:min-h-[280px] md:p-7',
-				featured ? 'ring-2 ring-blue-200 md:min-h-[300px] lg:min-h-[320px]' : '',
+				'group relative flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white text-slate-900 shadow-sm transition-shadow duration-300 hover:shadow-lg',
+				featured ? 'ring-2 ring-blue-200' : '',
 				className,
 			].join(' ')}
 		>
-			<div className="relative z-[1] flex flex-1 flex-col">
-				<div className="mb-3 flex flex-wrap items-start justify-between gap-3 sm:mb-4">
-					<h3 className="font-display max-w-[min(100%,20rem)] text-lg font-semibold tracking-tight text-balance text-slate-900 sm:max-w-[85%] sm:text-xl md:text-2xl">
-						{title}
-					</h3>
-					{qualityReport && (
-						<QualityReportIsland
-							projectTitle={title}
-							coverage={qualityReport.coverage}
-							summary={qualityReport.summary}
-							frameworks={qualityReport.frameworks}
+			<div className="relative z-[1] flex min-h-0 flex-1 flex-col p-4 sm:p-5">
+				<div className="mb-3 flex items-center gap-3">
+					<motion.div
+						className="flex size-11 shrink-0 items-center justify-center rounded-xl border border-slate-200/90 bg-gradient-to-b from-white to-slate-50 p-2 shadow-sm sm:size-12 sm:p-2"
+						aria-hidden
+						whileHover={reduceMotion ? undefined : { scale: 1.06, rotate: -2 }}
+						transition={{ type: 'spring', stiffness: 400, damping: 22 }}
+					>
+						<img
+							src={image}
+							alt=""
+							width={40}
+							height={40}
+							className="max-h-8 max-w-8 object-contain sm:max-h-9 sm:max-w-9"
+							loading="lazy"
+							decoding="async"
 						/>
-					)}
+					</motion.div>
+					<div className="min-w-0 flex-1">
+						<div className="flex flex-wrap items-start justify-between gap-x-2 gap-y-2">
+							<h3 className="min-w-0 max-w-full flex-1 basis-[min(100%,16rem)] font-display text-base font-semibold leading-snug tracking-tight text-balance text-slate-900 sm:text-lg">
+								{title}
+							</h3>
+							{(qualityReport || repoUrl) && (
+								<div className="flex flex-wrap items-center gap-2">
+									{qualityReport && (
+										<QualityReportIsland
+											projectTitle={title}
+											coverage={qualityReport.coverage}
+											summary={qualityReport.summary}
+											frameworks={qualityReport.frameworks}
+										/>
+									)}
+									<RepoLink url={repoUrl} />
+								</div>
+							)}
+						</div>
+					</div>
 				</div>
 
-				<p className="font-sans mb-5 line-clamp-3 flex-1 text-sm leading-relaxed text-slate-600 sm:mb-6 md:text-[0.9375rem]">
+				<p className="font-sans mb-0 min-h-0 flex-1 text-sm leading-snug text-slate-600">
 					{description}
 				</p>
 
 				{stack && stack.length > 0 && (
-					<ul className="mt-auto flex flex-wrap gap-2" aria-label="Tech stack">
-						{stack.map((tech) => {
-							const icon = STACK_ICON_SRC[tech];
-							return (
-								<li
-									key={tech}
-									className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 py-1 pr-2.5 pl-1.5 text-xs font-medium text-slate-700"
-								>
-									{icon && (
-										<img
-											src={icon}
-											alt=""
-											width={16}
-											height={16}
-											className="size-4 shrink-0 opacity-90"
-											loading="lazy"
-										/>
-									)}
-									<span>{tech}</span>
-								</li>
-							);
-						})}
-					</ul>
+					<div className="mt-6 mt-auto flex shrink-0 flex-col sm:mt-7">
+						<ul className="flex flex-wrap gap-1.5" aria-label="Tech stack">
+							{stack.map((tech) => {
+								const icon = STACK_ICON_SRC[tech];
+								return (
+									<li
+										key={tech}
+										className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-slate-50 py-0.5 pr-2 pl-1 text-[11px] font-medium text-slate-700"
+									>
+										{icon && (
+											<img
+												src={icon}
+												alt=""
+												width={16}
+												height={16}
+												className="size-4 shrink-0 object-contain opacity-90"
+												loading="lazy"
+											/>
+										)}
+										<span>{tech}</span>
+									</li>
+								);
+							})}
+						</ul>
+					</div>
 				)}
 			</div>
 		</motion.article>

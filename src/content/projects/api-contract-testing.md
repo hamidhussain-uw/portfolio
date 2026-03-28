@@ -1,7 +1,10 @@
 ---
 title: API contract & consumer-driven tests
-description: Pact-backed contracts between mobile, web, and billing services with breaking-change detection before deploy.
-role: SDET — APIs
+description: Pact consumer-driven contracts align mobile, web, and billing on payloads and errors. Provider verification runs on every pull request before deploy.
+image: /images/projects/api-contract.svg
+category: api-testing
+repoUrl: https://github.com/example/api-contract-tests
+role: SDET, APIs
 stack:
   - TypeScript
   - Postman
@@ -23,4 +26,4 @@ Consumer-driven contract tests keep teams aligned on request/response shapes, st
 ## Outcomes
 
 - Fewer production incidents from silent API drift.
-- Clear ownership when a contract fails — fix or version bump with intent.
+- Clear ownership when a contract fails: fix or version bump with intent.

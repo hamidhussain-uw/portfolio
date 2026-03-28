@@ -1,5 +1,12 @@
 ---
+import { contact } from '../../config/contact';
 import { FloatingNavbar } from '../UI/FloatingNavbar';
 ---
 
-<FloatingNavbar client:load />
+<FloatingNavbar
+	client:load
+	brand="Hamid Hussain"
+	tagline="QA & Test Automation"
+	githubUrl={contact.githubUrl}
+	linkedinUrl={contact.linkedinUrl}
+/>

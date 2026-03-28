@@ -1,6 +1,9 @@
 ---
 title: Synthetic test data & environment guardrails
-description: Seeded fixtures, PII-safe generators, and env promotion checks so automation never steps on shared staging data.
+description: Seeded fixtures and PII-safe generators keep API and UI runs reproducible. Nightly resets and OpenAPI checks catch schema drift before false reds pile up.
+image: /images/projects/test-data.svg
+category: api-testing
+repoUrl: https://github.com/example/synthetic-test-data
 role: QA tooling
 stack:
   - TypeScript

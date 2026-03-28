@@ -1,6 +1,9 @@
 ---
 title: Mobile regression lab (iOS & Android)
-description: Appium smoke and deep regression on real devices; parallel shards in CI with video and logs for triage.
+description: Appium PR smoke and nightly regression on real iOS and Android hardware. Parallel shards with video and logs focus on payments, push, and offline flows before store release.
+image: /images/projects/mobile-regression.svg
+category: ui-automation
+repoUrl: https://github.com/example/mobile-appium-regression
 role: Mobile QA
 stack:
   - Python

@@ -10,7 +10,7 @@ const frameworkMeta: Record<
 > = {
 	playwright: {
 		label: 'Playwright',
-		src: 'https://cdn.simpleicons.org/playwright/2EAD33',
+		src: 'https://playwright.dev/img/playwright-logo.svg',
 	},
 	cypress: {
 		label: 'Cypress',
@@ -170,7 +170,7 @@ export function QualityReportIsland({
 													alt=""
 													width={22}
 													height={22}
-													className="size-[22px] shrink-0"
+													className="size-[22px] shrink-0 object-contain"
 													aria-hidden
 												/>
 												<span className="text-sm font-medium text-slate-900">{meta.label}</span>
@@ -198,17 +198,15 @@ export function QualityReportIsland({
 			<motion.button
 				ref={triggerRef}
 				type="button"
-				className="relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-blue-600 bg-blue-600 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-white shadow-sm transition-colors hover:border-blue-700 hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-				whileHover={{ scale: 1.03 }}
+				className="group inline-flex min-h-10 items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50/90 px-3 py-2 text-xs font-medium text-slate-600 transition-colors hover:border-slate-300 hover:bg-white hover:text-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white sm:min-h-0 sm:py-1.5"
 				whileTap={{ scale: 0.98 }}
-				transition={{ type: 'spring', stiffness: 400, damping: 24 }}
+				transition={{ type: 'spring', stiffness: 450, damping: 28 }}
 				onClick={() => setOpen(true)}
 				aria-haspopup="dialog"
 				aria-expanded={open}
 			>
-				<span className="absolute inset-y-0 left-0 w-0.5 rounded-full bg-sky-200 opacity-90" aria-hidden />
 				<svg
-					className="h-3.5 w-3.5 shrink-0 text-white"
+					className="h-3.5 w-3.5 shrink-0 text-slate-500 transition-colors group-hover:text-slate-700"
 					viewBox="0 0 24 24"
 					fill="none"
 					stroke="currentColor"

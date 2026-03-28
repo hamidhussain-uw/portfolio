@@ -1,6 +1,9 @@
 ---
 title: Enterprise E2E regression suite
-description: Playwright-based coverage for critical user journeys with CI gates and flaky-test triage.
+description: Playwright covers checkout, billing, and account settings with smoke and full regression tags. Every PR runs Chromium and WebKit with traces on failure and a flaky-test triage workflow.
+image: /images/projects/enterprise-e2e.svg
+category: ui-automation
+repoUrl: https://github.com/example/enterprise-e2e-regression
 role: QA Automation Lead
 stack:
   - Playwright

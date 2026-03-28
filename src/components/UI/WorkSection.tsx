@@ -1,51 +1,181 @@
-import { motion, useReducedMotion } from 'framer-motion';
-import { useMemo } from 'react';
-import { getStaggerContainer, getStaggerItem } from './motion/staggerVariants';
+import {
+	AnimatePresence,
+	LayoutGroup,
+	motion,
+	useReducedMotion,
+} from 'framer-motion';
+import { useMemo, useState } from 'react';
+import { getStaggerContainer, getStaggerItem, getSectionReveal } from './motion/staggerVariants';
 import { MagneticProjectCard } from './MagneticProjectCard';
-import type { ProjectSerialized } from './projectTypes';
+import type { ProjectCategory, ProjectSerialized } from './projectTypes';
 
 type Props = {
 	projects: ProjectSerialized[];
 };
 
+const FILTERS: { id: 'all' | ProjectCategory; label: string }[] = [
+	{ id: 'all', label: 'All' },
+	{ id: 'ui-automation', label: 'UI Automation' },
+	{ id: 'api-testing', label: 'API Testing' },
+	{ id: 'manual', label: 'Manual' },
+];
+
+const layoutSpring = { type: 'spring' as const, stiffness: 380, damping: 32, mass: 0.85 };
+const filterBubbleSpring = { type: 'spring' as const, stiffness: 420, damping: 34, mass: 0.65 };
+
 export function WorkSection({ projects }: Props) {
 	const reduceMotion = useReducedMotion();
+	const [activeFilter, setActiveFilter] = useState<'all' | ProjectCategory>('all');
+
 	const container = useMemo(() => getStaggerContainer(reduceMotion, 0.1, 0.06), [reduceMotion]);
 	const item = useMemo(() => getStaggerItem(reduceMotion), [reduceMotion]);
+	const sectionReveal = useMemo(() => getSectionReveal(reduceMotion), [reduceMotion]);
+	const headerInner = useMemo(() => getStaggerContainer(reduceMotion, 0.08, 0.04), [reduceMotion]);
+	const headerLine = useMemo(() => getStaggerItem(reduceMotion), [reduceMotion]);
+
+	const filteredProjects = useMemo(() => {
+		if (activeFilter === 'all') return projects;
+		return projects.filter((p) => p.data.category === activeFilter);
+	}, [projects, activeFilter]);
+
+	const layoutEnabled = !reduceMotion;
 
 	return (
-		<section
+		<motion.section
 			id="work"
 			className="border-y border-sky-100/80 bg-sky-50/70"
 			aria-labelledby="work-heading"
+			variants={sectionReveal}
+			initial={reduceMotion ? 'show' : 'hidden'}
+			whileInView="show"
+			viewport={{ once: true, margin: '-80px 0px', amount: 0.08 }}
 		>
 			<div className="mx-auto max-w-design-content px-5 py-14 sm:px-6 sm:py-16 md:px-6 md:py-20">
 				<motion.div
-					className="grid grid-cols-1 gap-y-8 md:grid-cols-12 md:gap-x-6 md:gap-y-6"
+					className="flex flex-col gap-8 md:gap-10"
 					variants={container}
 					initial={reduceMotion ? 'show' : 'hidden'}
 					whileInView="show"
 					viewport={{ once: true, margin: '-70px 0px', amount: 0.12 }}
 				>
-					<motion.div variants={item} className="md:col-span-12">
-						<h2
-							id="work-heading"
-							className="font-display text-sm font-semibold tracking-[0.2em] text-slate-600 uppercase"
-						>
-							Featured work
-						</h2>
-					</motion.div>
-					{projects.map((p, i) => {
-						const wide = i % 2 === 0;
-						const span = wide ? 'md:col-span-8' : 'md:col-span-4';
-						return (
-							<motion.div key={p.id} variants={item} className={`min-h-0 ${span}`}>
-								<MagneticProjectCard project={p} className="h-full" />
+					<motion.div variants={item} className="space-y-6 sm:space-y-7">
+						<div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
+							<motion.div
+								className="min-w-0"
+								variants={headerInner}
+								initial={reduceMotion ? 'show' : 'hidden'}
+								whileInView="show"
+								viewport={{ once: true, margin: '-20px 0px', amount: 0.4 }}
+							>
+								<motion.h2
+									variants={headerLine}
+									id="work-heading"
+									className="font-display text-2xl font-semibold tracking-tight text-balance text-slate-900 sm:text-3xl"
+								>
+									Project gallery
+								</motion.h2>
 							</motion.div>
-						);
-					})}
+
+							<LayoutGroup id="work-gallery-filters">
+								<motion.div
+									className="flex w-full flex-shrink-0 flex-col items-center gap-2 sm:w-auto sm:items-end"
+									role="toolbar"
+									aria-label="Filter projects by category"
+									initial={reduceMotion ? false : { opacity: 0, y: 16, scale: 0.98 }}
+									whileInView={{ opacity: 1, y: 0, scale: 1 }}
+									viewport={{ once: true, margin: '-10px 0px', amount: 0.5 }}
+									transition={
+										reduceMotion
+											? { duration: 0 }
+											: { type: 'spring', stiffness: 380, damping: 28, delay: 0.12 }
+									}
+								>
+									<span className="text-[11px] font-medium tracking-wide text-slate-500 sm:self-end">
+										Show projects
+									</span>
+									<div className="w-full max-w-md rounded-2xl border border-slate-200/80 bg-white/55 p-1 shadow-[0_1px_3px_rgb(15_23_42/0.04)] backdrop-blur-md sm:w-auto sm:max-w-none sm:rounded-full">
+										<div className="flex flex-wrap justify-center gap-0.5 sm:flex-nowrap sm:justify-start">
+											{FILTERS.map((f) => {
+												const isActive = activeFilter === f.id;
+												return (
+													<button
+														key={f.id}
+														type="button"
+														onClick={() => setActiveFilter(f.id)}
+														aria-pressed={isActive}
+														className="relative inline-flex min-h-11 items-center justify-center rounded-full px-3.5 py-2 text-sm font-medium focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-sky-50/80 sm:min-h-0 sm:px-4 sm:py-2"
+													>
+														{isActive && (
+															<motion.span
+																layoutId="work-gallery-filter-bubble"
+																className="absolute inset-0 rounded-full bg-white shadow-sm ring-1 ring-slate-200/90"
+																transition={
+																	reduceMotion
+																		? { duration: 0 }
+																		: filterBubbleSpring
+																}
+																aria-hidden
+															/>
+														)}
+														<span
+															className={[
+																'relative z-[1] transition-colors duration-200',
+																isActive
+																	? 'text-slate-900'
+																	: 'text-slate-500 hover:text-slate-800',
+															].join(' ')}
+														>
+															{f.label}
+														</span>
+													</button>
+												);
+											})}
+										</div>
+									</div>
+								</motion.div>
+							</LayoutGroup>
+						</div>
+					</motion.div>
+
+					<LayoutGroup id="project-dashboard-grid">
+						<div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-5 xl:grid-cols-3">
+							<AnimatePresence initial={false} mode="popLayout">
+								{filteredProjects.map((p, i) => {
+									return (
+										<motion.div
+											key={p.id}
+											layout={layoutEnabled}
+											layoutId={`project-card-${p.id}`}
+											className="min-h-0"
+											initial={{ opacity: 0, scale: 0.97 }}
+											animate={{ opacity: 1, scale: 1 }}
+											exit={{ opacity: 0, scale: 0.97 }}
+											transition={{
+												layout: layoutSpring,
+												opacity: { duration: 0.22 },
+												scale: { duration: 0.22 },
+												delay: reduceMotion ? 0 : Math.min(i * 0.045, 0.36),
+											}}
+										>
+											<MagneticProjectCard project={p} className="h-full" />
+										</motion.div>
+									);
+								})}
+							</AnimatePresence>
+						</div>
+					</LayoutGroup>
+
+					{filteredProjects.length === 0 && (
+						<motion.p
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							className="rounded-2xl border border-dashed border-slate-300 bg-white/80 py-12 text-center text-sm text-slate-600"
+						>
+							No projects in this category yet.
+						</motion.p>
+					)}
 				</motion.div>
 			</div>
-		</section>
+		</motion.section>
 	);
 }

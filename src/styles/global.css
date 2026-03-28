@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 /*
- * Tailwind v4 @theme — bright, approachable palette.
+ * Tailwind v4 @theme: bright, approachable palette.
  * Primary surface: white; accents: blue-600, sky-100 zones, amber highlights.
  */
 @theme {
@@ -17,7 +17,7 @@
 	--max-width-design-wide: 100rem;
 	--max-width-design-ultra: 120rem;
 
-	/* Semantic colors — map to slate-900 / slate-600 / blue-600 system */
+	/* Semantic colors: map to slate-900 / slate-600 / blue-600 system */
 	--color-background: #ffffff;
 	--color-surface: #e0f2fe; /* sky-100 */
 	--color-surface-elevated: #ffffff;
@@ -27,7 +27,7 @@
 	--color-accent-bright: #3b82f6; /* blue-500 */
 	--color-accent-dim: #1d4ed8; /* blue-700 */
 	--color-highlight: #fbbf24; /* amber-400 */
-	--color-mint: #86efac; /* green-300 — soft mint accent */
+	--color-mint: #86efac; /* green-300, soft mint accent */
 
 	--shadow-card: 0 1px 3px 0 rgb(15 23 42 / 0.06), 0 1px 2px -1px rgb(15 23 42 / 0.05);
 	--shadow-card-hover: 0 10px 15px -3px rgb(15 23 42 / 0.08), 0 4px 6px -4px rgb(15 23 42 / 0.05);
@@ -35,8 +35,12 @@
 
 @layer base {
 	html {
-		@apply scroll-smooth scroll-pt-28;
+		@apply scroll-smooth;
+		/* Fixed nav (3.5rem) + notch/status safe area so in-page anchors clear the bar */
+		scroll-padding-top: max(4rem, calc(3.5rem + env(safe-area-inset-top, 0px)));
 		color-scheme: light;
+		/* Avoid rare horizontal scroll from full-bleed decor or long words */
+		overflow-x: clip;
 	}
 
 	body {
@@ -48,7 +52,7 @@
 }
 
 @layer components {
-	/* Solid “card” surface — replaces glassmorphism */
+	/* Solid “card” surface; replaces glassmorphism */
 	.glass-panel {
 		@apply rounded-2xl border border-slate-200 bg-white shadow-sm;
 	}

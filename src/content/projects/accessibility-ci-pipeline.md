@@ -1,7 +1,10 @@
 ---
 title: Accessibility checks in CI
-description: Automated axe scans on critical routes plus manual audits for complex widgets, documented in VPAT-ready summaries.
-role: QA — A11y champion
+description: axe scans on every merge plus manual checks on complex widgets. Blockers fail the build; VPAT-ready summaries keep one shared accessibility backlog.
+image: /images/projects/accessibility-ci.svg
+category: ui-automation
+repoUrl: https://github.com/example/a11y-ci-pipeline
+role: QA, accessibility champion
 stack:
   - TypeScript
   - Playwright

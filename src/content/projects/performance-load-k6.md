@@ -1,6 +1,9 @@
 ---
 title: Performance & load testing with k6
-description: Soak and spike scenarios against staging clusters; SLO-aligned thresholds wired into release checklists.
+description: k6 soak, spike, and steady-load scenarios on staging using production-shaped traffic. Checks map to latency and error SLOs; Grafana baselines sit beside functional gates in release.
+image: /images/projects/performance-k6.svg
+category: ui-automation
+repoUrl: https://github.com/example/k6-performance-suite
 role: Performance QA
 stack:
   - k6

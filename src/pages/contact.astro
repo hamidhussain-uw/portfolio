@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../components/Layouts/BaseLayout.astro';
+import { ContactPageContent } from '../components/UI/ContactPageContent';
+---
+
+<BaseLayout
+	title="Contact | Hamid Hussain"
+	description="Get in touch for QA automation, test strategy, and quality engineering. Hamid Hussain."
+>
+	<main class="flex-1">
+		<ContactPageContent client:load />
+	</main>
+</BaseLayout>

@@ -7,6 +7,15 @@ const projects = defineCollection({
 	schema: z.object({
 		title: z.string(),
 		description: z.string(),
+		/** Root-relative logo path (SVG/PNG), e.g. /images/projects/acme-mark.svg */
+		image: z
+			.string()
+			.regex(/^\//, 'image must be a root-relative path (start with /)'),
+		category: z.enum(['ui-automation', 'api-testing', 'manual']),
+		repoUrl: z
+			.string()
+			.regex(/^https:\/\/.+/, 'repoUrl must start with https://')
+			.optional(),
 		role: z.string().optional(),
 		stack: z.array(z.string()).optional(),
 		featured: z.boolean().optional(),

@@ -1,6 +1,9 @@
 ---
 title: Risk-Based Testing Dashboard
-description: Live risk heatmaps and traceability from requirements to tests, prioritizing coverage where failure cost is highest.
+description: Risk heatmaps and traceability from requirements to tests and last-run status. Scores blend defects, usage, and release scope so teams invest testing where failure hurts most.
+image: /images/projects/risk-dashboard.svg
+category: manual
+repoUrl: https://github.com/example/risk-based-testing-dashboard
 role: QA Lead / Test Strategist
 stack:
   - React
